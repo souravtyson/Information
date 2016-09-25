@@ -1,0 +1,139 @@
+
+URLS:
+    1. http://blogs.msdn.com/b/dgorti/archive/2005/08/16/452347.aspx
+    2. http://www.codeproject.com/Articles/37539/Redirect-and-POST-in-ASP-NET
+    
+****************************************************************************************************************************************************************
+
+LINQ queries have two different behaviors of execution : 
+	1. Deferred execution(Lazy Operators) : -  These query operators use deferred execution. Examples - select, where, Take, Skip etc. LINQ Query is only defined 	at point where it is written and is not executed at the point when it was used.
+
+	 // LINQ Query is only defined here and is not executed at this point
+         // If the query is executed at this point, the result should not display Tim
+
+	IEnumerable<Student> result = from student in listStudents where student.TotalMarks == 800 select student;
+ 	
+	listStudents.Add(new Student { StudentID = 104, Name = "Tim", TotalMarks = 800 });
+	
+	// The above query is actually executed when we iterate thru the sequence
+        // using the foreach loop. This is proved as Tim is also included in the result
+	foreach (Student s in result)
+        {
+            Console.WriteLine(s.StudentID + "\t" + s.Name + "\t" + s.TotalMarks);
+        }
+
+	2. Immediate execution(Greedy Operators) : - These query operators use immediate execution. Examples - count, average, min, max, ToList etc. LINQ Query is 	executed immediately at the point where it was written.
+
+
+	 // Since we are using ToList() which is a greedy operator
+         // the LINQ Query is executed immediately at this point
+         IEnumerable<Student> result = (from student in listStudents where student.TotalMarks == 800 select student).ToList();
+
+	// Adding a new student object with TotalMarks = 800 to the source
+        // will have no effect on the result as the query is already executed
+        listStudents.Add(new Student { StudentID = 104, Name = "Tim", TotalMarks = 800 });
+
+	// The above query is executed at the point where it is defined.
+        // This is proved as Tim is not included in the result
+        foreach (Student s in result)
+        {
+            Console.WriteLine(s.StudentID + "\t" + s.Name + "\t" + s.TotalMarks);
+        }
+
+ToArray :- 
+ToArray operator extracts all of the items from the source sequence and returns a new Array. This operator causes the query to be executed immediately. This operator does not use deferred execution.
+
+ToDictionary :- 
+ToDictionary operator extracts all of the items from the source sequence and returns a new Dictionary. This operator causes the query to be executed immediately. This operator does not use deferred execution.
+
+ToLookUp  :- 
+This is just like a dictionary, a Lookup is a collection of key/value pairs. A dictionary cannot contain keys with identical values, where as a Lookup can.
+
+Cast  :-
+It convert all of the items within an existing collection to another type and return them in a new collection. If an item fails conversion an exception will be thrown. This method uses deferred execution. Cast operator will try to cast all the elements in the collection into the specified type. If some of the items fail conversion, InvalidCastException will be thrown.
+We would generally use Cast when the following 2 conditions are met: 
+1. We want to cast all the items in the collection &
+2. We know for sure the collection contains only elements of the specified type.
+
+OfType  :-
+It will return only elements of the specified type. The other type elements are simply ignored and excluded from the result set. OfType operator returns only the elements of the specified type and the rest of the items in the collection will be ignored and excluded from the result. 
+We would generally use OfType when we want to filter the elements and return only the ones of the specified type.
+
+**************************************************************************************************************************************************************
+
+Javascript vs Jscript.Net
+JScript is just the Microsoft's version of JavaScript. But in some situations JScript is not behaving like JavaScript. 
+For Example: 
+		Declare a variable called temp in JavaScript code and create a object within the page having the field id as "temp".
+								var temp = 'Hello';
+		try to set the value of object temp in the page to the value of variable temp.
+								document.getElementById('temp').innerHTML = temp;
+		In here, JavaScript is working fine, but the JScript gives a error.The reason behind this is, in here JScript does not recognize the difference between var temp and document.getElementById('temp'). So he treats as both of them are referring to one single object. But JavaScript recognises the temp variable and the object within the page having id "temp" as two entirely separate fields. So that is a one significant difference between JavaScript and JScript. Another one is JScript supports additional commands that allow access to ActiveX and the local computer when comparing to JavaScript. But these commands are intended for use on intranet sites and for the browser Internet Explorer.
+
+**************************************************************************************************************************************************************
+
+GAC- Global Access Cache.Contains only strong named assembly
+ILDASM - intermediate language disassembler tool
+ILASM - intermediate assembler tool
+
+**************************************************************************************************************************************************************
+
+Application Execution:
+1.)	IL(Intermediate Language) is also known as MSIL(Microsoft Intermediate Language),CIL(common intermediate language),Managed Code
+2.)	Assemblies have an extension of .dll or .exe depending on application type.
+3.)	.Net assembly contains IL(Managed Code) where as pre .Net assembly contain Native Code(Machine Code, Unmanaged Code).
+4.)	.Net application execution consists of 2 steps:
+	a) compilation - source code to IL
+	b) execution or JIT compilation  - IL to Platform specific native code 
+5.) CLR(Common Language Runtime) - .Net runtime environment provides several benefits such as garbage collection.
+6.)	Native code is not stored permanently anywhere, after we close the program the native code is thrown away. 
+
+**************************************************************************************************************************************************************
+
+Delegate:
+it is a type safe function pointer. meaning it points to function and then when you invoke this delegate a function will invoke
+
+**************************************************************************************************************************************************************
+
+Udemy:
+
+C# vs .NET---
+
+C# is a programming language, while .NET is a framework. It consists of a run-time environment (CLR) and a class library that we use for building applications.
+
+
+CLR---
+
+When you compile an application, C# compiler compiles your code to IL (Intermediate Language) code. IL code is platform agnostics, which makes it possible to a take a C# program on a different computer with different hardware architecture and operating system and run it. For this to happen, we need CLR. When you run a C# application, CLR compiles the IL code into the native machine code for the computer on which it is running. This process is called Just-in-time Compilation (JIT).
+
+
+Architecture of .NET Applications---
+
+In terms of architecture, an application written with C# consists of building blocks called classes. A class is a container for data (attributes) and methods (functions). Attributes represent the state of the application. Methods include code. They have logic. That's where we implement our algorithms and write code.
+A namespace is a container for related classes. So as your application grows in size, you may want to group the related classes into various namespaces for better maintainability.
+As the number of classes and namespaces even grow further, you may want to physically separate related namespaces into separate assemblies. An assembly is a file (DLL or EXE) that contains one or more namespaces and classes. An EXE file represents a program that can be executed. A DLL is a file that includes code that can be re-used across different programs.
+
+**************************************************************************************************************************************************************
+
+ASP : stands for Active Server Pages
+user controls in asp.net can be written in different languages, including C++ and java. when a browser requests an asp.net file, the asp.net engine reads a file, compiles and executes the scripts in the file, and returns the result to the browser as plain HTML.
+
+1. ASP.NET files have the file extension .aspx
+2. ASP.NET file with Razor C# syntax have the file extension .cshtml
+3. ASP.NET files with Razor VB syntax have the file extension .vbhtml
+
+ASP.NET supports three different development methods: Web Pages,MVC(Model View Controller),& web forms.
+
+Razor : 
+1. It is a markup syntax for adding server-based code to web pages.
+2. It is a server side markup syntax much like ASP and PHP.
+
+Logical Folder Structure : 
+
+Account folder - contains logon and security files
+App_Data folder - contains databases and data files
+Images folder - contains images
+Scripts folder - contains browser scripts
+Shared - contains common files(like layout, style files)
+
+**************************************************************************************************************************************************************

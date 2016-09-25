@@ -1,0 +1,52 @@
+link to follow: http://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server
+
+giving access for mysql to remote user:
+
+If you get following kind of error : 
+
+ERROR 1130 (HY000): Host '' is not allowed to connect to this MySQL server
+
+	first run the following command: SELECT host FROM mysql.user WHERE User = 'root';
+	
+	add user to which you want to give the access: CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
+
+	grand priveleges to the required user: GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
+
+*****************************************************************************************************************************************************************
+
+while installing mysql on centos if you get following error 
+
+Error: mysql57-community-release conflicts with mysql-community-release-el7-5.noarch
+
+To solve this error you have to remove mariadb.rpm from your /etc/yum.repos.d folder.
+then try to install mysql db monitoring.
+
+*****************************************************************************************************************************************************************
+
+query to insert in to mysql: -
+	insert into <tablename> (<columnname1>, <columnname2>, <columnname3>) values (<value1>, <value2>,<value3>);
+
+sql query to add table into pre existing database: -
+	mysql -u <username> -p <password> < ciadmintable.sql
+
+inside ciadmintable.sql : ----
+
+		CREATE TABLE `<databasename>`.`<tablename>` (
+		`<columnname1>` <datatype> NOT NULL,
+		`<columnname2>` <datatype> DEFAULT NULL,
+		`<columnname3>` <datatype> DEFAULT NULL,
+		`<columnname4>` <datatype> DEFAULT NULL,
+		`<columnname5>` <datatype> DEFAULT NULL
+		) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table will have info about the tool that when and by whom it was accessed';
+		
+to alter column name: -
+	ALTER TABLE `<database>`.`<table>` CHANGE COLUMN `<oldcolumnname>` `<newcolumnname>` <datatype> NOT NULL;
+	
+****************************************************************************************************************************************************************
+
+command to dump mysql without data
+	mysqldump -d -u root -pmypassword databasename > dumpfile.sql
+
+command to dump mysql with data
+	mysqldump -u root -pmypassword databasename > dumpfile.sql
+	

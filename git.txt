@@ -1,0 +1,77 @@
+command for pushing into into git repository
+	git status
+	git add .
+	git status
+	git commit -m ""
+	git status
+	git push
+	git push origin master
+
+	
+*****************************************************************************************************************************************************************
+
+create a branch in git :
+
+git branch <branch-name>
+
+change the branch :
+
+git checkout <branch-name>
+
+add changes to git :
+
+git add --all
+git commit -m "<comments>"
+
+to push the changes from one branch to another:
+
+one_branch=the branch from where code will be moved
+another_branch=the branch to where code will be moved
+
+first switch to the branch where you want your code by the command: 
+	git checkout <another_branch>
+
+then:
+	git merge <one_branch>
+	
+delete the branch:
+
+	git branch -D <branch-name>
+
+remove from the git add:
+	
+	git reset
+
+	
+*****************************************************************************************************************************************************************
+
+reference : http://codecademy.com/
+
+Git is the industry-standard version control system for web developers
+
+Use Git commands to help keep track of changes made to a project:
+
+git init - creates a new Git repository
+git status - inspects the contents of the working directory and staging area
+git add adds - files from the working directory to the staging area
+git diff - shows the difference between the working directory and the staging area
+git commit - permanently stores file changes from the staging area in the repository
+git log - shows a list of all previous commits
+git branch - Lists all a Git project's branches.
+git branch branch_name - Creates a new branch.
+git checkout branch_name - Used to switch from one branch to another.
+git merge branch_name - Used to join file changes from one branch to another.
+git branch -d branch_name - Deletes the branch specified.
+git clone remote_location clone_name - 
+
+	In this command - 
+		remote_location - tells Git where to go to find the remote. This could be a web address, or a filepath.
+		clone_name - is the name you give to the directory in which Git will clone the repository.
+		One thing that Git does behind the scenes when you clone 'remote_location' is, give the remote address the name 'origin', so that you can refer to it more conveniently. It is possible to safely change its name
+
+git clone: Creates a local copy of a remote.
+git remote -v: Lists a Git project's remotes.
+git fetch: Fetches work from the remote into the local copy.
+git merge origin/master: Merges origin/master into your local branch.
+git push origin <branch_name>: Pushes a local branch to the origin remote.
+

@@ -1,0 +1,36 @@
+create a jar file through command prompt:
+
+1. create java file
+2. compile it
+3. create manifest file and place 
+		Manifest-Version: 1.0 
+		Main-Class: <class name from where program execution start>
+4. jar -cvfm <jar_file name> <manifest_file_name> *.class			
+5. there might be a possibility that jar file having manifest file will not contain Main-Class property so please add this property again.
+
+command to run jar file from cmd:
+
+	java -jar <file_name>.jar 
+
+*****************************************************************************************************************************************************************
+
+Portlets:
+	Portlets are pluggable user interface software components that are managed and displayed in a web- or enterprise- portal. Portlets produce fragments of markup (HTML, XHTML, WML) code that are aggregated into a portal.
+	
+*****************************************************************************************************************************************************************
+
+URL : https://docs.oracle.com/javase/tutorial/essential/concurrency/liveness.html
+	  https://docs.oracle.com/javase/tutorial/essential/concurrency/starvelive.html
+	  https://docs.oracle.com/javase/tutorial/essential/concurrency/deadlock.html
+	  
+	  
+Liveness : 
+	A concurrent applications ability to execute in a timely manner is known as liveness
+Deadlock : 
+	Deadlock describes a situation where two or more threads are blocked forever, waiting for each other.
+Starvation : 
+	Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
+Livelock : 
+	A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work. This is comparable to two people attempting to pass each other in a corridor: Alphonse moves to his left to let Gaston pass, while Gaston moves to his right to let Alphonse pass. Seeing that they are still blocking each other, Alphone moves to his right, while Gaston moves to his left. They're still blocking each other.
+	
+****************************************************************************************************************************************************************

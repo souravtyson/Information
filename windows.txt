@@ -1,0 +1,69 @@
+Performance Monitor:
+	 run coommand: perfmon.exe
+	 use: use to see the performance analysis of any process.
+
+	 
+*****************************************************************************************************************************************************************
+	command - wmic os get caption - used to identify the operating system.
+	command - wmic os get oarchitecture - used to identify the bit of the system(64-bit or 32-bit).
+	
+	
+*****************************************************************************************************************************************************************
+this copy of windows is not genuine :
+solution : url -> http://www.whatvwant.com/this-copy-of-windows-is-not-genuine-easy-solution/
+
+run cmd as an administrator. then type the following command "SLMGR -REARM" (SLMGR is Windows software licensing management tool. REARM command will reset the licensing status of machine) .Now you will see a confirmation window, click on OK.
+
+
+*****************************************************************************************************************************************************************
+to identify the port is running or not in windows use following command:
+    netstat -an | find "port_number"
+
+to identify the pid of the specified port in windows we use following command:
+	netstat -a -o -n | finstr 0.0:8080
+
+to kill the port which is being used in windows use following command:
+	taskkill /F /PID portnumber
+	
+to identify the active connections:
+	netstat -anb
+
+*****************************************************************************************************************************************************************	 
+command to find GUID in windows:
+
+    reg query HKLM /s /f IObjectWithSite /d
+    
+The command line specifies to search under the HKEY_LOCAL_MACHINE key (HKLM), recursively (/s), for the pattern 'IObjectWithSite' (/f), in                    the data only (/d) (i.e. not to match keys or values).
+
+*****************************************************************************************************************************************************************	 
+run command to open services:- 
+	services.msc
+
+run command to open registry:-
+	regedit
+
+	
+*****************************************************************************************************************************************************************
+
+process to make windows system as ntp server: - 
+	link: - http://blogs.interfacett.com/creating-standalone-ntp-server-windows
+	
+	step-1
+		open run window: open services (services.msc)
+		find WINDOWS TIME in services and make it start automatic.
+	Step-2
+		open run window: open registry (regedit)
+		find HKEY_LOCAL_MACHINE \ System \ CurrentControlSet \ Services \ W32Time \ TimeProviders \ NtpServer
+		and change Enabled from 0 to 1.
+	Step-3
+		update the Windows Time service’s running configuration by typing 
+			1. w32tm /config /update
+		verify that the NTP server service is enabled with
+			2. w32tm /query /configuration 
+
+
+*****************************************************************************************************************************************************************	 
+
+*****************************************************************************************************************************************************************	 
+
+	 

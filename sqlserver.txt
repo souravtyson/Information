@@ -1,0 +1,33 @@
+***********************
+not completed
+***********************
+link to add new login user in sql server 2012:
+
+http://stackoverflow.com/questions/7698286/login-failed-for-user-iis-apppool-asp-net-v4-0
+
+1. go to security 
+2. then select Logins
+3. right click on login, then select new login
+4. enter login name
+
+******************************************************************************************************************************************************************
+
+Stored Procedure:
+
+In DBMS Stored Procedure is denoted by SP. It is a set of Structured Query Language i.e. (SQL). They are stored in database server (SQL Server). Stored procedure is a group of Transact-SQL statements which performs one or more specific task in a single execution plan. There are 3 different types of SP's : 
+
+1. System SP's - It is stored in master database (pre-fixed "sp_") and usually perform the task for sql server functions.
+2. User Defined SP's - These custom SP's are created by user for implementing certain task in their applications (like INSERT, UPDATE, DELETE and SELECT)
+3. Extended SP's - Depreciated (No longer in USE)
+
+Types of parameter available in SP:
+
+Input Parameter : We can pass any number of input parameters to SP function.
+Output Parameter : We can output any number of output parameters from SP function.
+Return Parameter : But we can return only one/single return parameter from SP function.
+
+******************************************************************************************************************************************************************
+
+sql server 2012 setup link
+url:http://www.microsoft.com/en-us/download/details.aspx?id=29062
+

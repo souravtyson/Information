@@ -1,0 +1,216 @@
+Ubuntu command:
+
+	The command line is a text interface for the computer's operating system. To access the command line, we use the terminal. A filesystem organizes a computer's files and directories into a tree structure. It starts with the root directory. Each parent directory can contain more child directories and files.
+	
+	command : pwd - print working directory : Outputs the name of the current working directory. If you want to know that in which dirctory you are currently in,then write this command.
+	* in linux sometimes the hidden files are called dot files.
+	
+	command : ls : list of files and folder that are present in the current working directory.
+	
+	command : ls -l : list of files and folder that are present in the current working directory with details.
+	
+	command : ls -a : list of files and folder that are present in the current working directory(files that are hidden also can be visible). The -a modifies the behavior of the ls command to also list the files and directories starting with a dot (.). Files started with a dot are hidden, and don't appear when using ls alone.
+	
+	command : ls -t : order files and directories by the time they were last modified.
+	
+	command : cat : used to read the contents of the file.
+	
+	command : clear : clean the whole terminal.
+	
+	command : ls -la : list of normal and hidden files and folder with details in current working directory.
+	
+	command : cd - change directory - Switches you into the directory you specify. If you want to change the directory(want to get inside the folder) then use this command followed by the folder name you want to get inside.
+	
+	command : cd .. : if you want to move to the previous directory then use this command.
+	
+	command : mkdir - make directory : creates a new directory in the working directory. this creates a folder.
+	
+	command : rmdir - remove directory: this removes the folder.
+	
+	command : touch - creates a new file inside the working directory. this creates a file.
+	
+	command : rm - removes : this removes the file.
+	
+	command : cp - copy : takes two argument, first argument is the old file name,second argument is new file name.data of the old file name is copied to the data of new file name.
+	
+	command : mv - move : takes two argument. first argument is for old file,second argument is for the folder in which it is supposed to be moved(if you want to move the file with specified name,then that can also be possible or you can move the file without modifing the file name).
+	
+	command : grep : search a file for any specific keyword.takes two argument. first argument is the keyword which is supposed to be searched,second argument is the name of a file in which the keyword is to be searched.
+	
+	command : diff : (difference between the two files)compare two files.takes two argument.the two argument is the file name.
+	
+	command : passwd : changing the password.
+	
+	command : echo : prints aline of text.
+	
+	command : info : provides the detail information of the command : > - greater than : if you want to write the output of command which is written  on the terminal then use greater than symbol
+	For example: ls -l > Bacon
+	where Bacon is the file name in which the output of ls -l is written.The only problem is that, whenever you try to write into the file overridden occurs and old data which was written is deleted. So if you want to append into the same file then use ">>" in place of ">"
+	
+	reference : http://codecademy.com/
+	
+	command : echo "Hello" : The echo command accepts the string "Hello" as standard input, and echoes the string "Hello" back to the terminal as standard output. Standard input, abbreviated as stdin, is information inputted into the terminal through the keyboard or input device. Standard output, abbreviated as stdout, is the information outputted after a process is run. Standard error, abbreviated as stderr, is an error message outputted by a failed process.
+		
+	How does redirection work?
+	
+	command : echo "Hello" > hello.txt : The > command redirects the standard output to a file. Here, "Hello" is entered as the standard input. The standard output "Hello" is redirected by > to the file hello.txt. > takes the standard output of the command on the left, and redirects it to the file on the right. >> takes the standard output of the command on the left and appends (adds) it to the file on the right
+	
+	command : cat < lakes.txt : < takes the standard input from the file on the right and inputs it into the program on the left. Here, lakes.txt is the standard input for the cat command. The standard output appears in the terminal.
+	
+	command : wc : wc (word count) command in Unix/Linux operating systems is used to find out number of newline count, word count, byte and characters count in a files specified by the file arguments.
+		Example : wc [options] filenames
+	wc with different options:
+		1. wc -l : Prints the number of lines in a file.
+		2. wc -w : prints the number of words in a file.
+		3. wc -c : Displays the count of bytes in a file.
+		4. wc -m : prints the count of characters from a file.
+		5. wc -L : prints only the length of the longest line in a file.
+		
+	command : cat volcanoes.txt | wc : | is a "pipe". The | takes the standard output of the command on the left, and pipes it as standard input to the command on the right. You can think of this as "command to command" redirection.Here the output of cat volcanoes.txt is the standard input of wc. in turn, the wc command outputs the number of lines, words, and characters in volcanoes.txt, respectively.
+	
+	command : cat volcanoes.txt | wc | cat > islands.txt : Multiple |s can be chained together. Here the standard output of cat volcanoes.txt is "piped" to the wc command. The standard output of wc is then "piped" to cat. Finally, the standard output of cat is redirected to islands.txt.
+	
+	command : sort lakes.txt : sort takes the standard input and orders it alphabetically for the standard output. Output will be on the terminal.
+	command : cat lakes.txt | sort > sorted-lakes.txt : the command takes the standard output from cat lakes.txt and "pipes" it to sort. The standard output of sort is redirected to sorted-lakes.txt.
+	
+	command : uniq : uniq stands for "unique" and filters out adjacent, duplicate lines in a file. uniq reports or filters out repeated lines in a file.
+		Example : uniq [options] filenames
+	uniq with different options:
+		1. uniq -c : Prefix lines with a number representing how many times they occurred.
+		2. uniq -d : Only print duplicated lines.
+		3. uniq -u : Only print unique lines.
+		
+	command : grep Mount mountains.txt : grep stands for "global regular expression print". It searches files for lines that match a pattern and returns the results. It is also case sensitive. Here, grep searches for "Mount" in mountains.txt.
+	
+	command : grep -i Mount mountains.txt : grep -i enables the command to be case insensitive. Here, grep searches for capital or lowercase strings that match Mount in mountains.txt. We can use regular expressions to search for patterns in files.
+	
+	command : grep -R Arctic /home/ccuser/workspace/geography : grep -R searches all files in a directory and outputs filenames and lines containing matched results. -R stands for "recursive". Here grep -R searches the /home/ccuser/workspace/geography directory for the string "Arctic" and outputs filenames and lines with matched results.
+	
+	command : grep -Rl Arctic /home/ccuser/workspace/geography : grep -Rl searches all files in a directory and outputs only filenames with matched results. -R stands for "recursive" and l stands for "files with matches". Here grep -Rl searches the /home/ccuser/workspace/geography directory for the string "Arctic" and outputs filenames with matched results.
+	
+	command : sed 's/snow/rain/' forests.txt : sed stands for "stream editor". It accepts standard input and modifies it based on an expression, before displaying it as output data. It is similar to "find and replace". Here, 
+				s: stands for "substitution". it is always used when using sed for substitution.
+				snow: the search string, the text to find.
+				rain: the replacement string, the text to add in place
+	In this case, sed searches forests.txt for the word "snow" and replaces it with "rain." Importantly, the above command will only replace the first instance of "snow" on a line.
+	
+	command : sed 's/snow/rain/g' forests.txt : The above command uses the g expression, meaning "global". Here sed searches forests.txt for the word "snow" and replaces it with "rain", globally. All instances of "snow" on a line will be turned to "rain".
+	
+	Customizing Environment:
+	
+	~/.bash_profile is the name of file used to store environment settings. It is commonly called the "bash profile". When a session starts, it will load the contents of the bash profile before executing commands.
+		1. The ~ represents the user's home directory.
+		2. The . indicates a hidden file.
+		3. The name ~/.bash_profile is important, since this is how the command line recognizes the bash profile.
+	The command source ~/.bash_profile activates the changes in ~/.bash_profile for the current session. Instead of closing the terminal and needing to start a new session, source makes the changes available right away in the session we are in. Environment variables are variables that can be used across commands and programs and hold information about the environment.
+	
+		export VARIABLE="Value" sets and exports an environment variable.
+		USER is the name of the current user.
+		PS1 is the command prompt.
+		HOME is the home directory. It is usually not customized.
+		PATH returns a colon separated list of file paths. It is customized in advanced cases.
+		env returns a list of environment variables.
+
+
+*****************************************************************************************************************************************************************
+
+Ubuntu command : 
+
+zip command : if you want to zip(extension=.gz) some file you have to use the command "gzip"
+	EXAMPLE : gzip <filename>
+
+unzip command : if you want to unzip the file you have to use command "gunzip"
+	EXAMPLE : gunzip <filename>
+compressing multiple files command : if you want to compress multiple files into one .tar files then you can use "tar" command
+	EXAMPLE : tar cvf <file_name.tar> file1 file2 ---- filen
+		here cvf stands for create, notification that what have occured, filename
+
+uncompressing the tar : if you want to uncompress the .tar file then you can do it in following way 
+	EXAMPLE : tar xvf <file_name>
+		here, xvf stands for
+			x - extract
+			v - notification that what have occured
+			f - filename
+
+
+
+*****************************************************************************************************************************************************************
+
+
+	* File Permission : Is the file present in the system is readable,can be editable and executable, can be found with following commands
+	r = it says file can be read.
+	w = file can be editted
+	x = file can be executed
+	
+	Now when you write the command ls -l you get details of the file and one of the detail is file permission.
+	
+	For Example : -rwx rw- r--
+	-rwx - this is for owner of the file.
+	rw - this is for group.
+	r-- - this is for every other persons.
+
+	* Change the permission of a file : 
+		u-user
+		g-group
+		o-other people(from outside world)
+		
+		chmod 754 Bacon
+		
+		7,5,4 represents the individual permissions for (in this order) user, group,other
+		
+		4 - stands for read
+		2 - stands for write
+		1 - stands for execute
+		0 - stands for no permission
+
+		7 - comes from 4+2+1(user has all permissions)
+		5 - comes from 4+1(group has read and execute permission)
+		
+		
+*****************************************************************************************************************************************************************
+
+Find Out My Linux Distribution Name and Version by following command:
+
+cat /etc/*-release
+
+
+*****************************************************************************************************************************************************************
+
+
+ubuntu command to encrypt and decrypt messages using openssl:
+
+encrypt  = 	echo 30/06/2016|7CRKG32|b0:83:fe:68:34:e9 | openssl enc -aes-128-cbc -A -a -salt -pass pass:avekkeygen
+
+decrypt =  echo U2FsdGVkX19/hVhBDjogE7/mfYnhY/AM1+s9Luj8rNuAXr/BDXQNhg1joZC1V12F | openssl enc -aes-128-cbc -A -a -d -salt -pass pass:AvekshaaTechLKey
+
+
+*****************************************************************************************************************************************************************
+
+
+when you type "exit" command in terminal and you get the error : 
+									
+									exit
+									There are stopped jobs.
+									
+	then type "jobs" in terminal
+	
+	output  
+		[1]+  Stopped                 bash first.sh  (wd: /home/avekadmin/database_scripts/Source)
+	type "fg 1" command in terminal. This will solve the issue.
+	output
+		bash first.sh   (wd: /home/avekadmin/database_scripts/Source)
+
+
+*****************************************************************************************************************************************************************
+
+Use alias to create shortcuts for commands. 
+Example:
+		alias install="sudo apt-get install"
+		alias c="clear"
+		
+*****************************************************************************************************************************************************************		
+rename a config.txt with license.lic
+	
+		sudo mv "config.txt" "`basename "license" .txt`.lic"
+
+*****************************************************************************************************************************************************************		
