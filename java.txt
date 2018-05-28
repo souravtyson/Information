@@ -41,3 +41,54 @@ IoC container is used to manage & configure POJOs(Plain old java object), Becaus
 Java application with POJOs, many of Springs core tasks involve managing & configuring POJO's in the IoC container
 
 
+********************************************************************************************************************************************
+
+Spring & Hibernate 
+
+
+Whenever you define a relationship in Hibernate, you'll also need to define the fetch type. The fetch type essentially decides whether or not to load all of the 
+relationships of a particular object/table as soon as particular table/object is initially fetched.
+Whenever you see these annotations that means ou have got relationship : @OneToOne @OneToMany @ManyToMany. Fetch type needs to be specified whithin those
+annotations, if you don't specify one then it defaults to FetchType.LAZY.
+
+In the below example you can observe that when you load the instance of the User class via Hibernate query, Hibernate will NOT load this User's profile unless you explicitly
+ask it to.So, if you try to call user.getUserProfile(), you'll get a null.
+
+
+EXAMPLE:
+
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+
+public class User{
+	
+	private String username;
+	private String pass;
+	private Profile userProfile;
+
+	// omitting code for getter and setter for username & pass
+
+	@OneToOne
+	@JoinColmn(name="user_profile_id")
+	private Profile getUserProfile(){
+		return userProfile;
+	}
+
+	private void setUserProfile(Profile userProfile){
+		this.userProfile = userProfile;
+	}
+
+}
+
+FetchType.Eager is just the opposite of FetchType.Lazy. Eager fetchtype will load all the relationships related to the particular object loaded by hibernate.
+This means that if you change the type to @OneToOne(fetch=FetchType.EAGER), hibernate will load the entire user profiles into user object by default.
+
+Conclusion : 
+	
+	FetchType.EAGER = Loads all relationships. Convenient but slow
+	FetchType.LAZY = does not load all relationships unless explicitly asked for. More coding, but much more efficient.
+
+	Note : Lazy fetch does not mean that join queries are not executed, it simply means that join queries are executed when needed
+
+
+********************************************************************************************************************************************
