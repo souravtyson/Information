@@ -5,7 +5,7 @@ create a jar file through command prompt:
 3. create manifest file and place 
 		Manifest-Version: 1.0 
 		Main-Class: <class name from where program execution start>
-4. jar -cvfm <jar_file name> <manifest_file_name> *.class			
+4. jar -cvfm <jar_file name> <manifest_filename> *.class			
 5. there might be a possibility that jar file having manifest file will not contain Main-Class property so please add this property again.
 
 command to run jar file from cmd:
@@ -31,11 +31,861 @@ Deadlock :
 Starvation : 
 	Starvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by "greedy" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.
 Livelock : 
-	A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked — they are simply too busy responding to each other to resume work. This is comparable to two people attempting to pass each other in a corridor: Alphonse moves to his left to let Gaston pass, while Gaston moves to his right to let Alphonse pass. Seeing that they are still blocking each other, Alphone moves to his right, while Gaston moves to his left. They're still blocking each other.
+	A thread often acts in response to the action of another thread. If the other thread's action is also a response to the action of another thread, then livelock may result. As with deadlock, livelocked threads are unable to make further progress. However, the threads are not blocked ?they are simply too busy responding to each other to resume work. This is comparable to two people attempting to pass each other in a corridor: Alphonse moves to his left to let Gaston pass, while Gaston moves to his right to let Alphonse pass. Seeing that they are still blocking each other, Alphonse moves to his right, while Gaston moves to his left. They're still blocking each other.
 	
 ****************************************************************************************************************************************************************
 
-Spring & Hibernate
+Oracle has two products that implement Java Platform Standard Edition(Java SE) 8 : 1. Java SE Development Kit(JDK) 8 and Java SE Runtime Environment(JRE) 8.
+
+JDK 8 is a superset of JRE 8 and contains everything that is in JRE 8, plus tools such as the compilers and debugger necessary for developing applets and applications. JRE 8 provides the libraries, the Java Virtual Machine(JVM), and other components to run applets and applications written in the java programming language. Note JRE includes components not required by the Java SE specification, including both standard and non-standard Java components.
+
+****************************************************************************************************************************************************************
+
+Working of Servlet Application : 
+
+Web Container is responsible for managing execution of servlets and jsp pages for Java EE Application. When request comes in for a servlet the server hands the request to the web container. Web container is responsible for instantiating a servlet or creating a new thread to handle the request. It is the job of web container to get the request and response to the servlet. The container creates multiple threads to process multiple requests to a single servlet.
+
+Steps involved : 
+1. User sends request for a servlet by clicking a link that has URL to a servlet.
+2. The conatainer finds the servlet using deployment descriptor and creates two objects a) HttpServletRequest b) HttpServletResponse
+3. Then the container creates or allocates a thread for that request and calls the Servlet's service() method and passes the request, response objects as arguments.
+4. The service() method, then decides which servlet method doGet() or doPost() to call, based on HTTP Request method(Get, Post) sent by the client. Suppose the client sent an HTTP GET request so the service will call servlet's doGet() method.
+5. Then the servlet uses response object to write the response back to the client.
+6. After the service() method is completed the thread dies. And the request and response objects are ready for garbage collection.
+
+reference : http://www.studytonight.com/servlet/how-a-servlet-application-work
+
+****************************************************************************************************************************************************************
+
+Servlet Life Cycle : 
+
+1. Load Servlet Class - Servlet class is loaded when first request for the servlet is received by the web container.
+2. Servlet Instance Creation - After the servlet class is loaded, Web Container creates the instance of it. Servlet instance is created only once in the life cycle.
+3. Call to the init() method - init() method is called by the web container on servlet instance to initialize the servlet.
+
+Signature of init() method:
+public void init(ServletConfig config) throws ServletException
+
+4. Call to the service() method - The containers call the service() method each time the request for servlet is received. The service() method will call the doGet() or doPost() methods based on the type of the HTTP request.
+
+Signature of service() method:
+public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException
+
+5. Call to destroy method - The web container call the destroy() method before removing servlet instance, giving it a chance for cleanup activity.
+
+
+reference : http://www.studytonight.com/servlet/servlet-life-cycle
+
+*************************************************************************************************************************************************
+
+Two ways to check whether strings are equal in java:
+
+1. If the goal is to compare character sequences contained in two strings, the equals() method should be used. The equals() method compares two strings character by character, to determine equality. This is not the default implementation of the equals() method provided by the Object Class. This is overridden implementation provided by String Class.
+
+2. The == operator checks to see whether two object reference refer to the same instance of an object. 
+
+Note : The != and == equality operators are used to compare the memory locations of two objects.
+
+Examples : 
+			String first = "chairs";
+			String second = "chairs";
+			String third = new String("chairs");
+			
+			if(first == second)  // this evaluates to true
+				System.out.println("first==second");
+			
+			if(first.equals(second))  //this evaluates to true 
+				System.out.println("first equals second");
+				
+			if(first==third) // this evaluates to false
+				System.out.println("first==third");
+				
+			if(first.equals(third)) this evaluates to true
+				System.out.println("first equals third");
+				
+Objects of String class are immutable. Objects of StringBuffer & StringBuilder classes are mutable.
+
+***********************************************************************************************************************************************
+
+Openjdk vs oraclejdk : 
+ 
+ To determine which version of java is installed type command : 
+					java -version
+
+	O/P - 
+	This type of o/p if Oracle JDK is install on my system : 
+		java version "1.7.0_80"
+		Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+		Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+		
+	This type of o/p if Open JDK is install on my system :
+		java version "1.7.0_91"
+		OpenJDK Runtime Environment (amzn-2.6.2.2.63.amzn1-x86_64 u91-b00)
+		OpenJDK 64-Bit Server VM (build 24.91-b01, mixed mode)
+		
+link : https://technfun.wordpress.com/2013/01/18/last-difference-openjdk-oracle-jdk/
+
+************************************************************************************************************************************************
+
+Apache Tomcat 8.0 requires a Java Standard Edition Runtime Environment (JRE) version 7 or later.
+You may also use a full Java Development Kit (JDK) rather than just a JRE.
+JRE_HOME or JAVA_HOME - These variables are used to specify location of a Java Runtime Environment or of a Java Development Kit that is used to start Tomcat. The JRE_HOME variable is used to specify location of a JRE. 
+The JAVA_HOME variable is used to specify location of a JDK. Using JAVA_HOME provides access to certain additional startup options that
+are not allowed when JRE_HOME is used. If both JRE_HOME and JAVA_HOME are specified, JRE_HOME is used.
+
+reference : http://tomcat.apache.org/tomcat-8.0-doc/RUNNING.txt
+
+************************************************************************************************************************************************
+
+Hypertext Transfer Protocol(HTTP) : 
+
+1. HTTP is a protocol that clients and servers use on the web to communicate.
+2. It is similar to other internet protocols such as SMTP(Simple Mail Transfer Protocol) and FTP(File Transfer Protocol
+3. HTTP is a stateless protocol i.e. HTTP supports only one request per connection. This means that with HTTP the clients connect to the server to send one request and then  disconnets. This mechanism allows more users to connect to a given server over a period of time.
+4. The client sends an HTTP request and server answers with an HTML page to the client using HTTP.
+
+HTTP Methods:
+1. HTTP request can be made using a variety of methods, the ones you will most often use are GET and POST. The method name tells the server the kind of request that is being made, and how the rest of the message
+will be formated.
+
+Methods  								Description
+
+OPTIONS		:  Request for communication options that are available on	the request/response chain.
+GET 		:  Request to retrieve information from server using a given URI.
+HEAD		:  Identical to GET except that it does not return a message-body, only the headers and status line.
+POST		:  Request for server to accept the entity enclosed in the body of HTTP method.
+DELETE		:  Request for the server to delete the resource.
+CONNECT		:  Reserved for use with a proxy that can switch to being tunnel.
+PUT			:  This is same as POST, but POST is used to create.PUT can be used to create as well as update. It replaces all current representations of the target resource with the upload content.
+
+GET vs POST
+
+GET request : data is send in header to the server. Get request can send only limited amount of data. Get request is not secured because data is exposed in URL. Get request can be bookmarked and is more efficient.
+
+POST request : data is sent in the request body. large amount of data can be sent. Post request is secured because data is not exposed in URL.
+Post request cannot be bookmarked.
+
+************************************************************************************************************************************************
+
+Two important servlet API packages : 
+1. javax.servlet
+2. javax.servlet.http
+
+Servlet interface provides five methods. Out of these five methods, three methods are Servlet life cycle methods and rest are non life cycle methods.
+
+1. service(ServletRequest, ServletResponse) - life cycle method
+2. init(ServletConfig) - life cycle method
+3. destroy() - life cycle method
+4. getServletConfig() - non-life cycle method
+5. getServletInfo() - non-life cycle method. Provides information regarding the servlet.
+
+getLastModified() - Returns the time that the HttpServletRequest object was last modified.
+
+************************************************************************************************************************************************
+
+If you are unable to find the doc of the servlet class and you get following kind of error - 
+		"This element has no attached source and the Javadoc could not be found in the attached Javadoc".
+	then follow the steps below:
+		1. in your package explorer of your project go to Java Resources>Libraries.
+		2. Find servlet-api.jar.
+		3. Right click and choose properties and specify the source location there of "servlet-api-2.5-sources.jar".
+
+**************************************************************************************************************************************
+
+Java class is an entity that determines how an object will behave and what the object will contain.
+A Java object is self-contained component which consists of methods & properties to make certain type of data useful.
+A class system allows the program to define a new class(derived class) in terms of an existing class(superclass) by using a technique like inheritance,overriding and augmenting.
+
+**************************************************************************************************************************************
+
+
+web server uses tens of hundreds of threads to process large number of concurrent users.
+if two or more threads utilize the same resources, a contention between the threads is inevitable(sure to happen) and sometimes deadlock occurs.
+
+
+Thread contention : 
+		status in which one thread is waiting for a lock to be lifted which is held by another thread
+		for example : different threads frequently access shared resources on a web application.
+					  to record a log, the thread trying to record the log must obtain a lock and access the shared resources.
+
+Deadlock : a special type of thread contention, in which two or more threads are waiting for the other threads to complete their tasks in order to complete their own tasks.
+
+Thread Synchronization : 
+
+thread synchronization on java can be done using monitor.
+every java object has a single monitor.
+the monitor can be owned by only one thread.
+for a thread to own a monitor that is owned by a different thread, it needs to wait in the wait queue until the other thread releases its monitor.
+
+thread status : 
+
+the statuses of threads are stated on java.lang.Thread.State.
+new : the thread is created but has not been processed yet.
+runnable : the thread is occupying the cpu and processing a task.
+blocked : the thread is waiting for a different thread to release its loack in order to get the monitor lock.
+waiting : the thread is waiting by using a wait, join or park method.
+timed_waiting : the thread is waiting by using a sleep,wait,join or park method.(the difference from waiting is that the maximum waiting time is specified by the method parameter, and waiting can be relieved by time as well as external changes.)
+
+
+**************************************************************************************************************************************
+
+Execution of a Java Program : 
+
+1. static loading  : 
+	*	a block of code would be loaded into the RAM before it is executed (i.e. - after being loaded into the RAM. it may or may not get executed)
+	*	static loading takes place in the execution of structured programming. ex : c proramming.
+	*	wastage of memory during the program execution because alloacation of memory is occupied by static loaded program so it releases when 
+		the execution is completed.
+	
+2. dynamic loading : 
+	*	a block of code is loaded into the RAM only when it is required to be executed.
+	*	java follows dynamic loading.
+	*	object oriented programming languages follows dynamic loading methodology. ex : java, c++ , .net
+	* 	uses less time to execute the program.
+	*	even though we have less memory the program definitely executed.
+	
+	
+>>	JVM would not convert all the statement of .class file into the executable code at a time.
+>> 	once the control comes out from the method, then it is deleted from the RAM and another method of .exe type will be loaded as required.
+>>  once the control comes out from the main() method, then it would also be deleted from the RAM. this is why we are not able to view the .exe 
+	contents of .class file
+	
+	
+Functions of JVM : 
+
+1. loads the executable code into the RAM.
+2. deletes the executable code from the RAM.
+3. execute the code through local operating system.
+4. converts the required part of byte code into its equivalent executable code.
+
+>> JVM is platform dependent
+>> JVM converts .class file into its equivalent executable code. now if the JVM is in windows environment it converts the .class file into its quivalent
+	executable code that is understood by windows environment only. similarly, same is the case with unix or other os.
+>> so whenever we say JAVA is platform independent, we don't consider JVM's platform dependency.
+
+
+
+>>	so compiled code can be executed in any operating system, irrespective of the os in which that code had been generated. this concept is known as platform
+	independecy	.
+	
+**************************************************************************************************************************************
+
+* the birth of OOP's concept took place with encapsulation.
+* any program contains two parts 1) data 2) logic.
+* out of data and logic highest priority is given to data.
+* but in structured programming languages the data insecurity is high.
+* thus in a process of securing data in structured programming language the concept of encapsulation came into existence.
+* ENCAPSULATION is the concept of binding data along with its corresponding functionalities.
+* ENCAPSULATION came into existence in order to provide security for the data present inside the program.
+* Any object oriented programming language file looks like a group of classes. Everything is encapsulated. Nothing is outside the class.
+* ENCAPSULATION is the backbone of OOP languages.
+* JAVA supports all the oop concept(encapsulation, polymorphism, inheritance) and hence it is known as object oriented programming language.
+* C++ breaks the concept of encapsulation, because the main method in a C++ program is declared outside a class, hence it is not a pure oop language. Infact 
+  it is a poor oop language.
+  
+
+**************************************************************************************************************************************
+
+Four basic OOPS concept : 1) Inheritance 2) Abstraction 3) Encapsulation 4) Polymorphism
+
+Abstraction : 
+* It is an OOPS concept which focuses on relevant information by hiding unnecessary details.
+* Abstraction hides details at the design level.
+* Abstraction is about hiding unwanted details while giving out most essential details
+* let you focus on what the object does instead of how it does.
+* abstraction is achieved using interface and abstract class. Interface gives 100% abstraction and abstract class gives 0-100% abstraction
+
+	Ex : 1 -------------------------------------------------
+			public abstract class Shape{
+				private String color;
+				public abstract int getArea();
+				public void toString(){
+				
+				}
+			}
+			
+			
+			public class Rectangle extends Shape{
+				private int length;
+				private int width;
+				
+				public void setLength(int l){
+					this.length = l;
+				}
+				
+				public void setWidth(int w){
+					this.width = w;
+				}
+				
+				public int getLength(){
+					return length;
+				}
+				
+				public int getWidth(){
+					return width;
+				}
+				
+				@Override
+				public int getArea(){
+					return length*width;
+				}
+				
+				@Override
+				public void toString(){
+					return getArea();
+				}
+			}
+
+			public class Test{
+				Rectangle r = new Test();
+				r.setLength(24);
+				r.setWidth(12);
+				r.toString();
+			}
+			
+	Ex : 2 -------------------------------------------------------
+
+			
+			class Employee extends Person {
+				
+				private String empCode;
+
+				public String getEmpCode() {
+					return empCode;
+				}
+
+				public void setEmpCode(String empCode) {
+					this.empCode = empCode;
+				}
+				
+				
+			}
+
+			abstract  class Person {
+				
+				private String name;
+
+				public String getName() {
+					return name;
+				}
+
+				public void setName(String name) {
+					this.name = name;
+				}
+				
+				
+
+			}
+
+			public class Main{
+				public static void main(String args[]){
+					//INSTIATING AN ABSTRACT CLASS GIVES COMPILE TIME ERROR
+					//Person p =  new Person() ;
+					
+					
+					//THIS REFERENCE VARIABLE CAN ACESS ONLY THOSE METHOD WHICH ARE OVERRIDDEN
+					Person person = new Employee();
+					person.setName("Jatin Kansagara");        
+					System.out.println(person.getName());
+					
+					// this part of program throws CTE(Compile time error)
+					//person.setEmpCode("sourav");
+					//System.out.println(person.getEmpCode());
+				}
+			}
+				
+	
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+	
+
+Encapsulation : 
+* It as an OOPS concept which hides data from outside world.
+* Encapsulation hide details at the implementation level.
+* Encapsulation means hiding the code and data into a single unit e.g. class or method to protect inner working of an object from outside world.	
+* hiding the internal details of how an object works.
+* encapsulation is supported using access modifiers e.g. private, public , protected
+* Example : 
+
+			public class Student{
+				private String name;
+				public void setName(String name){
+					this.name = name;
+				}
+				public String getName(){
+					return name;
+				}
+			}
+			
+			class Test {
+				public static void main(String[] args){
+					Student s = new Student();
+					s.setName("Sourav");
+					System.out.println(s.getName());
+				}
+			}
+
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$		
+
+Inheritance :
+* Inheriting the properties of one class into another class.
+* Inheritance represent IS-A-RELATIONSHIP, also known as parent-child relationship.
+* Used for 			1) Method Overriding (runtime polymorphism can be achieved).
+					2) Code reusability.
+* Types of Inheritance : 				1)   Single Inheritance		(supported in java)
+										2)	 Multilevel Inheritance	 (supported in java)
+										3)   Heirarchical Inheritance  (supported in java)
+										4)   Multiple Inheritance	(not supported in java) 
+										5)	 Hybrid Inheritance   (not supported in java) 
+										
+										
+	Reason for not supporting Multiple Inheritance
+	* To reduce code complexity and simplify the language
+	* Consider you have 3 classes A, B and C. C inherits class A and B. A & B have same method with same signature. So while accessing the method their will be an ambiguity. Now when you try to compile the code you will get compile time error
+	* whether you have same method or different, there will be compile time eroor.
+	
+					Example : 			class A{
+											public void msg(){
+												System.out.println("inside class A");
+											}
+										}
+										
+										class B{
+											public void msg(){
+												System.out.println("inside class B");
+											}
+										}
+										
+										class C extends A,B{		//not possible, if possible
+											C obj = new C();
+											obj.msg();				// now which msg method should be invoked.????????
+										}
+										
+										o/p   =    COMPILE TIME ERROR
+	
+
+	
+	$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$		
+	
+	
+Polymorphism : 
+				* derived from two greek words 1) poly means many
+											   2) morph means forms
+				
+				* two types of polymorphism : 1) compile time polymorphism
+											  2) runtime polymorphism
+				
+				* we can achieve polymorphism in java by method overriding and method overloading
+				
+				* if you overload static method in java, then it is an example of compile time polymorphism
+				
+				Example : 
+				
+				class Bike{
+					void run(){
+						System.out.println("inside bike class");
+					}
+				}
+				
+				class Splender extends Bike{
+					void run(){
+						System.out.println("inside splender class");
+					}
+					
+					public static void main(String[] args){
+						Bike b = new Splender();			// upcasting
+						b.run();
+					}
+				}
+				
+				
+				o/p  ------------ inside splender class
+											  
+	
+	
+	link :  http://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.9
+	
+	
+
+**************************************************************************************************************************************
+
+
+Different regions in JVM Memory :  
+
+	1) 	Eden  
+	2)  Survivor 1
+	3)	Survivor 2
+	4)	Old Generation - also known as tenured 
+	5)	Permgeneration (until java 7).from java 8 perm generation has been replaced with Metaspace
+	
+	Eden, Survivor 1, Survivor 2 collectively known as young generation.
+	
+
+
+Purpose of each region in Java Memory : 
+	
+	Eden : this is region where object gets created first time. Most of the object in application are short-lived object. So they gets garbage collected
+			(Minor GC)
+	
+	Survivor : If the object survives the Minor GC they are pushed to this region. Object are kept in this region for a certain number of Minor GC Collection. Only if they survive certain number of minor gc collection, then they are promoted to old generation.
+	
+	Old Generation : Certain objects are tend to be long lived. Example : Application context, HTTP Session, Caches, Connection Pools. Those long lived objects are promoted to the old generation.
+	
+	Perm Generation : This is the location where JVM objects such as Classes, Methods, String Interns are created.
+	
+	Metaspace: Starting from Java 8 Perm generation has been replaced with Metaspace for performance reasons.
+
+
+
+Types of GC : 
+
+	1) Minor GC : Also known as Scavenge GC. Collects garbage from young generation.
+	2) Major GC : Collects garbage from old generation.
+	3) Full GC : collects garbage from all generation i.e old, young, Perm, metaspace
+		
+		* When major or full gc run all application threads are paused. It is called stop the world events. In minor gc also stop-the-world event occurs but momentarily
+		
+Types of GC Algorithms : 
+
+	1) Serial :  * can be enabled with the option = -XX:+UseSerialGC. 
+				 * It uses single thread to perform all gc works. Best suited to single processor machines because it cannot take the advantage  of multiprocessor hardwares.
+				 * least cpu consumption
+				 * max gc pause time is worst
+				 * total gc pause time is worst
+				 * jdk version support - all
+				 * the GC in the old generation uses an algorithm called "mark-sweep-compact".
+				 
+	Execution process : 
+	             a.  majority of newly created object are located in the eden space.
+	             b.  after one GC has ocurred in the eden space, the surviving objects are moved to one of the Survivor area.
+	             c.  after a GC in the eden space, objects are pilled up into the survivor space where other surviving objects already exist.
+	             d.  once the survivor space is full, surviving objects are moved to the other survivor space. Then, the survivor space which was full earlier will be moved to the state where there is no data at all.
+	             e.  the objects that survived these steps (that have been repeated a number of times) are moved to the old generation.
+	             f.  Now comes the mark-sweep-compact algorithm in function. The first step of this algorithm is to mark the surviving objects in the old generation.(mark)
+	             g.  now it checks the heap from the front and leaves only the surviving objects behind.(sweep)
+	             h.  In the last step, it fills up the heap from the front with the objects so that the objects are piled up consecutively, and divides the heap into two parts: one with objects and one without objects (compact).
+	
+	2) Parallel : * can be enabled with the option = -XX:+UseParallelOldGC
+				  * known as throughput collector
+				  * performs minor collection in parallel which can significantly reduce the gc overheads. Intended for application of medium sized to large sized data sets that are run for multiprocessor or multithreaded hardwares.
+				  * jdk version support from java 5
+				  * 2nd best cpu comsumption
+				  * 2nd best total gc pause time.
+				  * 3rd best max gc pause time.
+	
+	3) CMS : 	  * can be enabled with the option = -XX:+UseConcMarkSweepGC
+				  * concurrent collector performs most of its work concurrently(for example while the application is running) to keeps garbage collection pauses short.
+				  * designed for application with medium sized to large-sized data sets that are run on multiprocessor or multithreaded hardware.
+				  * jdk support version from jdk 6
+				  * best total gc pause timed
+				  * cpu consumption is high.
+				  * 2nd best max gc pause time 
+	
+	4) G1GC : 	  * can be enabled with the option = -XX:+UseG1Gc
+				  * latest gc targeted for multi-processor machines with large memories. It meets garbage collection pause time goals with high probability while achieving high throughput.
+				  * whole heap operation such as global marking are performed concurrently with the application threads.
+				  * jdk support version from jdk 8
+				  * cpu consumption is high.
+				  * best max gc pause time 
+				  * 3rd best total gc pause time
+				  
+				  
+				  links : https://blog.gceasy.io/2015/11/27/which-gc-to-use/
+						https://blog.gceasy.io/2015/10/30/java-garbage-collection-interview-questions/
+	
+	
+**************************************************************************************************************************************
+	
+	
+	Accept Header vs Content-Type Header
+	
+	Accept : It is a way for a client to tell the server that it is expecting a response of this media type.
+	
+	Content-Type : It is a way to specify the media type of request being sent from the client to server.
+	
+	for example : 
+	
+	* As you correctly note, the Accept header is used by HTTP clients to tell the server what content types they'll accept. The server will then send back a response, which will include a Content-Type header telling the client what the content type of the returned content actually is.
+	
+	However, as you may have noticed, HTTP requests can also contain Content-Type headers. Well, think about POST or PUT requests. With those request types, the client is actually sending a bunch of data to the server as part of the request, and the Content-Type header tells the server what the data actually is (and thus determines how the server will parse it).
+	
+	reference : 
+				1) https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers
+				2) http://www.java-allandsundry.com/2012/08/accept-header-vs-content-type-header.html
+				
+
+				
+***************************************************************************************************************************************************************
+Vector class in java:
+
+1. Vector is slow because it is synchronized i.e in multithreading environment, it will hold the other threads in runnable or non-runnable state until current thread releases the lock of object. 
+2. Vector is a legacy class. 
+		LEGACY meaning - Every version of java did not include Collections framework. Instead it defined several classes and one interface to store objects.When collection came these classes reengineered to support the collection interfaces. These old classes are known as legacy classes.
+3. Vector increments 100% means double the array size if total number of element exceeds than its capacity.
+4. Vector uses Enumeration interface to traverse the elements. But it can use Iterator also.
+
+ArrayList class in java:
+
+1. ArrayList is fast because it is non-synchronized.
+2. ArrayList is not a legacy class and is introduced in JDK 1.2.
+3. ArrayList increments 50% of current array size if number of element exceeds from its capacity.
+4. ArrayList uses Iterator interface to traverse the elements.
+5. ArrayList can contain duplicate elements.
+6. In ArrayList, manipulation is slow because a lot of shifting needs to be occured if any element is removed from the arraylist.
+7. ArrayList extends AbstractList class and implement List interface.
+8. ArrayList is better for storing and accessing data.
+9. ArrayList internally uses dynamic array to store the elements.
+
+LinkedList class in java:
+
+1. LinkedList extends AbstractList class and implement List and Deque interface.
+2. LinkedList can contain duplicate elements.
+3. LinkedList is non-synchronized.
+4. In LinkedList, manipulation is faster because no shifting needs to be done.
+5. LinkedList can be used as list, stack, queue.
+6. LinkedList is better for manipulating data.
+7. LinkedList internally uses doubly linked list to store elements.
+
+
+
+****************************************************************************************************************************************************************
+
+
+
+Java Collection supports two types of Iterator:
+1. Fail-Fast iterator:
+	a) throws ConcurrentModification Exception.
+	b) no cloning of object.
+	c) no memoryoverhead.
+	d) Ex: HashMap, ArrayList, Vector, HashSet.
+2. Fail-Safe iterator:
+	a) doesnot throw ConcurrentModification Exception.
+	b) cloning of object is done.
+	c) memoryoverhead occured.
+	d) CopyOnWriteArrayList, ConcurrentHashMap, CopyOnWriteArraySet
+	e) Introduced in Java 1.5
+	
+* If you have used Collection like ArrayList then you know that when you iterate over them, no other thread should modify the collection. If Iterator detects any structural change after iteration has begun e.g adding or removing a new element then it throws ConcurrentModification Exception,  this is known as fail-fast behavior and these iterators are called fail-fast iterator because they fail as soon as they detect any modification.
+
+* Fail-Safe iterator uses a view of original collection for doing iteration and that's why it doesnot throw ConcurrentModification Exception even when original collection was modified after iteration has begun.
+
+* Fail-Fast iterator traverse over original collection class while Fail-Safe iterator traverse over a copy or view of original collection. That's why they don't detect any change on original collection classes and this also means that you could operate with stale value.
+
+Read more: http://www.java67.com/2015/06/what-is-fail-safe-and-fail-fast-iterator-in-java.html#ixzz4Jjn26KKt
+
+****************************************************************************************************************************************************************
+
+Error & Exception : -
+
+Both Error and Exception class retain inside java.lang package and is a sub-classes of java.lang.Throwable class.
+
+Error : java.lang.Error represents the error which are mainly caused by environment in which application is running. Recovering from error is not possible. The only solution is to terminate the execution. We cannot handle erros using try/catch block. Error belongs to only one category i.e unchecked
+Example	: 
+		a) StackOverflowError - occurs when stack over flows 
+		b) OutOfMemoryError - occurs when jvm runs out of memory
+
+Exception : java.lang.Exception are maily caused by the application itself. Recovering from exception is possible by using try/catch block or throwing exception back to caller. Exception in java is divided into two categories 
+									1. checked exception
+									2. unchecked exception
+Example : 
+		unchecked exception
+		a) NullPointerException - occurs when an application tries to access null object.
+		b) ClassCastException - occurs when an application tries to cast incompatible class types.
+		c) ArrayIndexOutOfBound Exception
+		
+		checked exception
+		SQL Exception and IO Exception
+		
+Compiler will not have any knowledge of unchecked exceptions which include Errors and sub-classes of runtime exception because they happen at runtime. Where as compiler will have knowledge of checked exception. Compiler will force you to keep try/catch block if it sees any statements which may throw checked exceptions.
+
+************************************************************************************************************************************************
+
+
+elasticsearch : 
+
+						http://192.168.56.101:9200/dept/employee/_search
+
+						|-------------------------|----|--------|-------|
+						           a                 b      c       d
+
+						index and type name must be in lowercase
+						a = server ip with port 9200 is the default one
+						b = index
+						c = type
+						d = this tells to search in the respective index and document type
+						
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+This query is used to match all the document inside our index :		
+			http://192.168.56.101:9200/dept/employee/_search
+						{
+							"query":{
+								"match_all":{}
+							}
+						}
+This query will give me different types of document
+			http://192.168.56.101:9200/dept/_search
+						{
+							"query":{
+								"match_all":{}
+							}
+						}
+This query will give me the document which contains string "Luo" in the field specified as "name"
+			http://192.168.56.101:9200/places/restaurant/_search
+						{
+							"query":{
+								"query_string": {
+									"query":"Luo",
+									"fields":["names"]
+								}
+							}
+						}
+This query will give me the document which contains string "Luo" in the field specified as "name" and filter the result on the basis of range. The range tells that the rating field in the document should be greater than or equals to 4.0.
+			http://192.168.56.101:9200/places/restaurant/_search
+						{
+							"query": {
+								"filtered": {
+									"filter": {
+										"range":{
+											"rating":{
+												"gte":4.0
+											}
+										}
+									},
+									"query":{
+										"query_string": {
+											"query":"Luo",
+											"fields":["names"]
+										}
+									}
+								}
+							}
+						}
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+************************************************************************************************************************************************
+
+Apache Http Web Server:
+
+* It is a webserver application.
+* Delivers web content through the internet. Such as 
+					1) HTML document
+					2) Multimedia(image)
+					3) Style Sheet(CSS)
+					4) Client Side Scripts(Javascripts)
+* It is open source
+* Apache is Modular 
+	-> functionality added to core application
+	-> modules provide specific functionality
+		1) cryptographic protocols like SSL.
+		2) Server side programming language support like PHP.
+		3) Load Balancing across multiple Servers to handle large amounts of traffic.
+* When apache is running it is not just one monolithic service, its actually a parent service with multiple child processes, each of which can be serving different pages to viewers at any given time.
+
+* To start apache server we need to type following command : 
+	/etc/init.d/apache2 {argument}									{start|stop|graceful-stop|restart|reload|force-reload}
+	status : * may need to be enable manually because in some of the apache server it is not enabled by default.
+			 * show what apache is doing
+	
+	start : * starts apache parent web server and spawns children.
+	
+	stop : * parent tells child process to shutdown, no matter what they are doing, and then parent process shutdown.
+		   * if you shutdown using stop argument then the connection will be terminated and any request which are in progress will not be served.
+	
+	graceful-stop : instead of everything halting immediately any requests that are in progress are completed and, as each process is free up, it exists. At the end the parent process is shutdown as well.
+	
+	restart : * parent does not fully exit
+			  * children are stopped
+			  * configuration re-read
+			  * child process spawned with new config
+			  * required for low level configuration changes.
+			  
+	graceful : * AKA reload
+			   * nicer way for restarting server
+			   * child process are given chance to stop what they are doing and once they are done they are gracefully shutdown. When everybody stop and configuration are reloaded child processes are spawned. This is needed for minor configuration changes.
+			   
+
+Apache will act as a virtual host. For example : if you have multiple application with different domain name and you want to host different application on the web server. You donot need separate server machine and apache software for each website. 
+Types of Apache Virtual Host:
+1) Name based hosting
+2) IP based hosting
+	
+	
+************************************************************************************************************************************************
+
+	
+CMS GC : 
+
+* The common consequence of the concurrent approach in CMS is that CMS normally requires on the order of 10 to 20 percent more Java heap space than Parallel GC to handle the same application. That is the part of the price paid for small GC pauses.
+
+* How CMS GC deals with fragmentation in the old GC?
+	Fragmentation occurs when free space between objects in the old generation becomes so small or nonexistant that an obect being promoted from the young generation cannot fit into available hole. The CMS concurrent cycles doesnot perform compaction not even incremental or partial compaction.
+	A failure to find an available hole causes CMS to fall back to a full collection using Serial GC, typically resulting in a lengthy pause.
+	Fragmentation in CMS is unpredictable
+	
+	
+	
+************************************************************************************************************************************************
+
+
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Iterator;
+import java.util.Map;
+
+
+/*
+                HashMap extends Abstract Class
+				HashMap implements Map interface
+                Uses hashtable to store data. This causes the execution time of get() and put() method to be same.
+                Does not maintain order of its element
+                Heirarchy of HashMap class:
+
+                                               Map
+                                                ^
+                                                |
+                                                |   (implements)
+                                                |   (dotted lines)
+											Abstract class
+                                                ^
+                                                |
+                                                |   (extends)
+                                                |   (solid lines)
+											 HashMap                                                             
+
+*/
+
+				class Simple{
+                public static void main(String[] args){
+                              HashMap hm = new HashMap();
+                              HashMap hm1 = new HashMap();
+                              hm.put(100,"Sour");
+                              hm.put(101,"Suman");
+                              hm.put(102,"Tyssonn");
+                              hm.put(102,"Tsonn");
+                              hm.put(null,"jhfjyfjhf");
+                              hm1.put(100,"Sour");
+                              hm1.put(101,"Suman");
+                              hm1.put(102,"Tyssonn");
+                              hm1.put(102,"Tsonn");
+                              hm1.put(null,"jhfjyfjhf");
+                              System.out.println(hm.hashCode());
+                              System.out.println(hm1.hashCode());
+                              Set set = hm.entrySet();
+                              Iterator it = set.iterator();
+                              while(it.hasNext()){
+                                       Map.Entry m      = (Map.Entry)it.next();
+                                       System.out.println(m.getKey());
+                                       System.out.println(m.getValue());
+                              }
+                }
+}
+	
+	
+***************************************************************************************************************************************	
+	
+	
+	Spring & Hibernate
 
 IoC container is used to manage & configure POJOs(Plain old java object), Because one of the primary appeals of Spring Framework is to build 
 Java application with POJOs, many of Springs core tasks involve managing & configuring POJO's in the IoC container
@@ -92,3 +942,9 @@ Conclusion :
 
 
 ********************************************************************************************************************************************
+
+	
+	
+	
+	
+	
