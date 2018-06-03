@@ -1,0 +1,215 @@
+link to follow: http://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server
+
+giving access for mysql to remote user:
+
+If you get following kind of error : 
+
+ERROR 1130 (HY000): Host '' is not allowed to connect to this MySQL server
+
+	first run the following command: SELECT host FROM mysql.user WHERE User = 'root';
+	
+	add user to which you want to give the access: CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
+
+	grand priveleges to the required user: GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
+
+*****************************************************************************************************************************************************************
+
+while installing mysql on centos if you get following error 
+
+Error: mysql57-community-release conflicts with mysql-community-release-el7-5.noarch
+
+To solve this error you have to remove mariadb.rpm from your /etc/yum.repos.d folder.
+then try to install mysql db monitoring.
+
+*****************************************************************************************************************************************************************
+
+query to insert in to mysql: -
+	insert into <tablename> (<columnname1>, <columnname2>, <columnname3>) values (<value1>, <value2>,<value3>);
+
+sql query to add table into pre existing database: -
+	mysql -u <username> -p <password> < ciadmintable.sql
+
+inside ciadmintable.sql : ----
+
+		CREATE TABLE `<databasename>`.`<tablename>` (
+		`<columnname1>` <datatype> NOT NULL,
+		`<columnname2>` <datatype> DEFAULT NULL,
+		`<columnname3>` <datatype> DEFAULT NULL,
+		`<columnname4>` <datatype> DEFAULT NULL,
+		`<columnname5>` <datatype> DEFAULT NULL
+		) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table will have info about the tool that when and by whom it was accessed';
+		
+to alter column name: -
+	ALTER TABLE `<database>`.`<table>` CHANGE COLUMN `<oldcolumnname>` `<newcolumnname>` <datatype> NOT NULL;
+	
+****************************************************************************************************************************************************************
+
+command to dump mysql without data
+	mysqldump -d -u root -pmypassword databasename > dumpfile.sql
+
+command to dump mysql with data
+	mysqldump -u root -pmypassword databasename > dumpfile.sql
+	
+*************************************************************************************************************************************************
+
+DDL 
+DML
+DCL
+TCL
+
+*************************************************************************************************************************************************
+
+command to view the variables in mysql:
+show variables
+
+only single table dump :
+mysqldump -u root -p avekshaa_ci accessinfo > new.sql
+
+dump data into text files:
+select * from avekshaa_ci.accessinfo into outfile 'c://Users/avewinpc/Desktop/data.txt' fields terminated by ',' optionally enclosed by '"' lines terminated by '\n';
+
+dump data from txt file to mysql :
+
+Step 1:
+mysql -u root -p --local-infile
+
+Step 2:
+load data local infile 'c://Users/avewinpc/Desktop/accesslog.txt' into table avekshaa_ci.accessinfo fields terminated by ',' enclosed by '"' lines terminated by '\n';
+
+Specify which columns to load your text file columns into
+
+load data local infile 'c://Users/avewinpc/Desktop/data.txt' into table avekshaa_ci.accessinfo fields terminated by ',' enclosed by '"' lines terminated by '\n' (@col1,@col2,@col3,@col4) set Tool=@col1,UserId='sourav.suman@avekshaa.com',DateTime=@col2,ProjectName=@col3,Status=@col4;
+
+
+**************************************************************************************************************************************************
+
+To add column to the table : 
+alter table dateappdex add uniqueID varchar(100);
+
+Change column index
+ALTER TABLE hourapdex CHANGE COLUMN uniqueID uniqueID VARCHAR(100) NULL DEFAULT NULL AFTER `DAY`;
+
+if block example :
+select if(count(*)=1,password,"false") from auth;
+
+switch statement example :
+select( case when count(*) = 1 then password when count(*) > 1 then \"false\" when count(*) = 0 then \"\" end) as license from auth;
+
+update statement example : 
+update auth set password='sourav123' where password='a4d84dce-5c49-41c2-bf21-551dbc6dd854';
+
+************************************************************************************************************************************************
+
+drop vs truncate vs delete in mysql : - 
+
+DELETE : 
+			a) deletes table rows & returns number of rows deleted.
+			b) we can delete selected number of rows using DELETE command.
+			c) DELETE statement has two modifiers namely 1) LOW_PRIORITY 2) QUICK.
+			d) If we have use DELETE command then the data deleted can be retrieved when you ROLLBACK.
+			e) when QUICK modifier is specified then the table handler does not merge index leaves during delete, this may cause to 
+			   speed up certain kind of deletes.
+			f) LIMIT clause can also be used to set a limit on the number of rows to be deleted.
+			g) if a DELETE is issued with no WHERE clause, all rows are deleted.
+			h) ORDER BY clause can be used in DELETE statement. In this case, the rows are deleted in the specified order.
+			i) with LOW_PRIORITY keyword, DELETE execution is delayed until no other clients are reading from the table and if WHERE clause
+			   is specified then rows are deleted satisfying the given conditions and finally returns the number of rows deleted.
+			j) with no WHERE clause in AUTOCOMMIT mode, DELETE works as TRUNCATE and does not return affected rows.
+			k) it is considered DML(Data Manipulation Language) statement.
+			l) A DELETE statement will be logged by the database and can be rolled back within a transaction if the statement fails.
+			m) Typically a DELETE will take row level locks on the data it is deleted, though this could escalate higher as necessary.
+			n) Because of the transactional overhead, DELETE can be "slow" (this is relative), but safer because it is fine-grained.
+			
+TRUNCATE :   
+			
+			a) TRUNCATE drops the table & re-create it. It is much faster than deleting rows one ny one.
+			b) Once we use TRUNCATE command then we cannot retrieve the data again from the table.
+			c) TRUNCATE is not transaction-safe; an error occurs when attempting one in the course of an active transaction or active table   lock.
+			d) TRUNCATE removes all the rows from the table.
+			e) TRUNCATE does not return number of deleted rows.
+			f) TRUNCATE functionality is an Oracle SQL extension adopted in MYSQL.
+			g) TRUNCATE can be considered as a shortcut for DROP table/CREATE table rather than a quirky kind of DELETE.
+			h) when TRUNCATE is not transaction-safe, an error occurs when attempting one in the course of an active transaction or active table lock.
+			i) with TRUNCATE table, a table can be re-created(as an empty table) when only the table format file tbl_name.frm is valid, & its data or index files have become corrupted.
+			j) with TRUNCATE table, the table handler reset the AUTO_INCREMENT value starting from the beginning. This is true even for MyISAM
+			& InnoDB engines.
+			k) In case of partitioned tables, TRUNCATE table drops the data and index files and re-creates but preserves the partition definitions(.par) file. TRUNCATE table works similar to delete if there are foreign key constraints that reference the table; otherwise it simply drops and re-creates the table. The AUTO_INCREMENT value is reset by TRUNCATE TABLE even ignoring  foreign key constraint, if there is.
+			l)  considered a DDL(Data Definition Language) statement
+
+DROP : 	
+
+			a) DROP deletes the data as well as structure.
+			b) difference between DROP and DELETE table is that, after executing DELETE statement the contents of table are removed but the stucture remains same, but in case of DROP statement both the contents and structure are removed.
+
+
+
+link : http://dba.stackexchange.com/questions/61240/difference-between-drop-and-truncate
+
+************************************************************************************************************************************************
+
+Operating System Block : 
+
+* block is a smallest unit of storage for the file system.
+* block is a unit consisting of multiple bytes.
+* block consist of fixed number of bytes per file system.
+* significance of block is the smallest unit that will be write into the memory - if some program running in the memory needs some information from the hard disk, one whole block has to go from the hard disk into the memory, even if you need minor information from the block minimum one block will be read.
+
+
+Oracle Database  : Logical Storage component
+
+* database resides on the operating system filesystem.
+* minimum one db block will go into memory when database is read.
+* tablespaces are simple group of physical database files.
+* extent consist of blocks
+* segment is a group of extent
+* segment represent a database object like table,index e.t.c. segment will be created when you create database object.
+* segment is the smallest unit of storage that end-user will deal with. end-user deals with tables, indexes, database object, so indirectly they are dealing with segments.
+* initial number of extents given to a segment can be controlled.
+* you can also control the size of the initial extents.
+
+
+Data blocks : 
+
+			a) smallest logical unit to store oracle data.
+			b) one data block represent specific number of bytes on physical hard disk.
+			c) data block in oracle is also called as logical block.
+			d) data block size is usually multiple of operating system block size.
+			e) you can have multiple block sizes with in single database(max is five).
+			f) block size is specified by initialization parameter DB_BLOCK_SIZE.
+			g) format of data block is : 
+				1) header : contains generic information like block address and type of segment(index,data, e.t.c).
+				2) table directory : contains information about table having rows in that block.
+				3) row directory : contains information about actual row contained  in that block.
+				4) free space : available space in data block for additional row or update of row which require more space.
+				5) row data : contains table or index data. First three component of block(header,row & table directory) collectively known as overhead.
+				
+				
+Extent : 
+			a) collection of contiguous data blocks.
+			b) one or more extents make up a segment.
+
+Segment : 
+	
+			a) set of extents allocated for specific data structure (like table or index).
+			b) various kind of segments are table, index, cluster, rollback, temporary.
+			c) important view for segments are dba_segments, user_segments, all_segments.
+			d) in a segment, first block of first extent contains segment header information.
+			
+			
+link : https://www.youtube.com/watch?v=CPCGU_6JyFU
+	   http://onlineappsdba.com/index.php/2008/01/31/blocks-extents-segments-in-oracle-database-back-to-basics/
+	   https://www.youtube.com/watch?v=ihVMkvT0VTg
+	   
+	   
+************************************************************************************************************************************************
+
+
+primary key : it is a column that serves a unique identifier for row in the table. values in this column must be unique and cannot be null.
+
+Foreign key : it is a column that contains the primary key to another table in the database. it is used to identify a particular row in the referenced table.
+
+joins : used in sql to combine data from multiple tables
+
+inner join : combine rows from different tables if the join condition is true
+
+left outer join : will return every row in the left table and if the join condition are not met , NULL values are used to fill in the columns from the right table.
