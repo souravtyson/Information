@@ -1,0 +1,53 @@
+react js
+
+stateful component/class component - maintain its own internal state. You may see stateful components referred to simply as components or React components.
+
+Example : 
+
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+        { /* change code below this line */ }
+
+        { /* change code above this line */ }
+       </div>
+    );
+  }
+};
+
+--------------------------------------------------------------------
+
+stateless functional component -  any function you write which accepts props and returns JSX
+
+--------------------------------------------------------------------
+
+stateless component - is a class that extends React.Component, but does not use internal state
+
+Example : 
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p>
+      </div>
+    );
+  }
+};
