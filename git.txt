@@ -77,9 +77,23 @@ git push origin <branch_name>: Pushes a local branch to the origin remote.
 
 ****************************************************************************************************************************
 
-*** 
-
 Run
 Command to set the username and email globally. Required when committing to git
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
+  
+
+*****************************************************************************************************************************
+refer image for better understanding
+
+data flow on git
+
+working area   ---- D -->   indexing & staging  ----- C -->    local repository   <---- A ------    remote repository	
+working area   ------------------------------------------->	   local repository	  ----- B ----->    remote repository 
+
+
+A - git clone, git pull origin master, git pull origin feature/blah, git fetch origin, git fetch origin feature/blah, 
+B - git push origin master, git push origin feature/blah, git revert <commit-number>
+C - git commit -m "commit msg", git reset --soft HEAD~2
+D - git add ., git add <file name>, git reset HEAD <filename>, git reset HEAD .(unstage files)
+E - git branch, git checkout master, git checkout feature/blah, git status, git checkout -b feature/newbranch etc.....
