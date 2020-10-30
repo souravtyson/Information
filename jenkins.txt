@@ -1,0 +1,20 @@
+
+Steps to install jenkins on ubuntu : 
+
+a) wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+b) sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+c) sudo apt-get update
+d) sudo apt-get install jenkins
+
+
+After running jenkins as a service if you are not able to start the service using command : 
+                                         
+										 sudo service jenkins start 
+										 
+then check the logs at /var/log/jenkins/jenkins.log. If you find the error related to port being used then you have to chnage the default port on which jenkins listen.
+You can do that by changing the config file present at /etc/default/jenkins location.
+
+After doing that jenkins will  ask for the credentials at ui interface. You have to provide credentials present in this file : /var/lib/jenkins/secrets/initialAdminPassword
+
+
+Manage Jenkins -> Manage Plugins -> Available(Tab)
