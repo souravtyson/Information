@@ -42,7 +42,7 @@ b)	Insert an element in the DOM with the help of ".before()" &	".after()" functi
 		
 		1. we can select an element using $("p") and assign it to a variable.
 		2. we can move the position in the DOM by using the variable in our after() statement.
-		This does not copy the element from one location to another, it moves the original element effectively saving yo from having to delete the original.
+		This does not copy the element from one location to another, it moves the original element effectively saving you from having to delete the original.
 
 c)  Remove elements using jQuery functions like ".empty()" & ".remove()". These functions help us delete content from pages.
 		
@@ -78,4 +78,107 @@ f) jQuery has specific .height() & .width() functions that can be used to change
 g) We can update the contents of our HTML elements - that is, the bit between the opening and closing tags using the .html() & .val() functions.
 	
 
+***********************************************************************************************************************
+
+Diffrence between == and === operator in javascript
+
+== it compares only value in variable
+=== it compares value and data type
+var x = 10
+console.log(x == "10")  //   true
+console.log(x === "10")   // false - because typeof x == number and typeof "10" string
+
+typeof - it tells what kind of data type the variable is
+
+***********************************************************************************************************************
+concept of hoisting : 
+
+in javascript variable can be declared after it has been used
+
+FOR EXAMPLE : 
+in the below code you can see i have initialized x with value 5 and later at the end of the code i declared x. 
+
+														x = 5; // Assign 5 to x
+														elem = document.getElementById("demo"); // Find an element
+														elem.innerHTML = x;                     // Display x in the element
+														var x; // Declare x
+													
+													output - 5
+so javascript interpretes the above code as below one
+
+														var x; // Declare x
+														x = 5; // Assign 5 to x
+														elem = document.getElementById("demo"); // Find an element
+														elem.innerHTML = x;                     // Display x in the element
+
+													output - 5
+
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
+so in the above code you can see that var x is moved to top of the javascript file and then it runs.
+There are few scenarios wher this hoisting feature doesnot work like : 
+
+1. Variables declared with let or const are not hoisted.
+2. JavaScript only hoists declarations, not initializations.
+3. hoisting of function declarations is possible but hoisting of function expression is not.
+
+FOR EXAMPLE : 
+
+														var x = 5; // Initialize x
+														elem = document.getElementById("demo"); // Find an element
+														elem.innerHTML = x + " " + y;           // Display x and y
+														var y = 7; // Initialize y
+
+													output - x undefined
+
+so javascript interpretes the above code as below one
+
+														var x = 5; // Initialize x
+														var y;     // Declare y
+														elem = document.getElementById("demo"); // Find an element
+														elem.innerHTML = x + " " + y;           // Display x and y
+														y = 7;    // Assign 7 to y														
+
+													output - x undefined
+													
+Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined.
+
+
+FOR EXAMPLE : 
+
+														helloWorld();  // prints 'Hello World!' to the console
+														function helloWorld(){
+															console.log('Hello World!');
+														}
+														
+													output - Hello World
+													
+														helloWorld();  // TypeError: helloWorld is not a function
+														
+														var helloWorld = function(){
+															console.log('Hello World!');
+														}
+													
+													output - helloWorld is not a function
+
+As JavaScript only hoist declarations, not initializations(assignments), so the helloWorld will be treated as a variable, not as a function.
+So javascript in strict mode does not allow  variables to be used if they are not declared
+
+
+************************************************************************************************************************
  
+ fetch api example for post method:
+ 
+fetch("https://jsonplaceholder.typicode.com/users",{
+  method:"post",
+  body: JSON.stringify({
+    name: "sourav",
+    username: "sousu"
+  }),
+  headers: {
+    "Content-Type": "application/json"
+  }
+}).then(response => {
+  response.json().then((data) => {
+    console.log(data)
+  });
+});
