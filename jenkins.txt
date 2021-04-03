@@ -17,4 +17,23 @@ You can do that by changing the config file present at /etc/default/jenkins loca
 After doing that jenkins will  ask for the credentials at ui interface. You have to provide credentials present in this file : /var/lib/jenkins/secrets/initialAdminPassword
 
 
+
+How to add plugins in jenkins - 
 Manage Jenkins -> Manage Plugins -> Available(Tab)
+
+
+After installing the github plugin
+On dashboard page of jenkins click
+net item -> free-style project and provide project name 
+Click ok
+this will redirect you to next page where you fill all the details related to github
+select source code management (tab) - > git (place the clone url of the repository can be found on the github page)
+then go to build triggers (tab) - select github hook trigger for GITScm polling option
+now click on save
+
+
+this is one part of the configuration the another part is a workaroundas out jenkins is not accessed via internet. For that we will use ngrok utility which will bind my ip and port to internet.
+
+ngrok.exe http 8081
+
+this will make my jenkins accessible on internet.

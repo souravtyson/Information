@@ -115,7 +115,7 @@ so javascript interpretes the above code as below one
 
 Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function)
 so in the above code you can see that var x is moved to top of the javascript file and then it runs.
-There are few scenarios wher this hoisting feature doesnot work like : 
+There are few scenarios where this hoisting feature doesnot work like : 
 
 1. Variables declared with let or const are not hoisted.
 2. JavaScript only hoists declarations, not initializations.
@@ -128,7 +128,7 @@ FOR EXAMPLE :
 														elem.innerHTML = x + " " + y;           // Display x and y
 														var y = 7; // Initialize y
 
-													output - x undefined
+													output - y undefined
 
 so javascript interpretes the above code as below one
 
@@ -138,20 +138,20 @@ so javascript interpretes the above code as below one
 														elem.innerHTML = x + " " + y;           // Display x and y
 														y = 7;    // Assign 7 to y														
 
-													output - x undefined
+													output - y undefined
 													
 Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined.
 
 
 FOR EXAMPLE : 
-
+								Normal function --
 														helloWorld();  // prints 'Hello World!' to the console
 														function helloWorld(){
 															console.log('Hello World!');
 														}
 														
 													output - Hello World
-													
+								Function expression - 					
 														helloWorld();  // TypeError: helloWorld is not a function
 														
 														var helloWorld = function(){
@@ -182,3 +182,364 @@ fetch("https://jsonplaceholder.typicode.com/users",{
     console.log(data)
   });
 });
+
+
+***********************************************************************************************************************
+
+
+const is another keyword provided in ES6, with the help of which we can create variable.
+const keyword is more like let keyword the only difference is : whenever you create const variable you 
+must initialize it with some value otherwise, it will throw error. creating the constant variable means you cannot reassgin 
+value to it. but you can, in case of array or object, update the pointer
+it is only accessible to the scope in which it is defined
+
+let is another keyword which is supported in ES6 version.
+this is basically used to set the variable scope to some block or function scope
+so basically if you declare a variable in some block of code it is accessible to that scope only
+reassigning the value to the variable is possible if you are doing it within the scope
+
+
+Hoisting - In hoisting variable declaration and function declaration are processed before any code are executed
+so declaring a variable or fucntion anywhere in the code is equivalent to declaring it at the top. This also means
+that a variable & functions can appear to be used before they are declared, this behaviour  
+is called hoiting
+
+
+
+to create a variable in javascript you can use var, let, const. All these keywords are avialable for es6 version.
+If you go to es5 version you will get only var as keyword to create variable
+
+
+var keyword explanation with example
+if variable created using var you can change variable value. if the scope of var varibale is global then it is accessible to
+any part of the code. consider scenario below where myFirstName is globally created and same is accessed in the function with the assigned value
+but if you create a variable with same name in function scope it is not accessible outside the function. for the same scenario whatever changes 
+you do within function scope will be effective in that scope only.
+
+
+
+**********************************************************************************************************************************
+
+let and const 
+
+let declared variable is not hoisted whereas var declared variable is hoisted
+variable declared using let and const are blocked scoped
+all const declarations must be initialized and once initialized, you cannot assign a new value
+
+					let 							const
+					
+				let name;						const name = 'sourav'
+				name = 'sourav'
+				
+				let name = 'sourav'				const name = 'sourav'    |
+				name = 'suman'						name = 'suman'    	 |    not possible in case of const
+				
+				
+
+*********************************************************************************************************************************
+
+
+shorthand object assignment 
+
+const name = 'sourav'
+const age = 28
+
+
+old school way - 
+
+const detail = {
+	name: name,
+	age: age
+}
+
+
+new school way - (shorthand way)
+
+const detail = {
+	name,
+	age
+}
+
+
+*********************************************************************************************************************************
+
+
+destructuring assignment : 
+
+	1. Object  		
+	
+			// old ways
+			
+			const name = {
+				first : "sourav",
+				second: "suman"
+			}
+			
+			const first = name.first
+			const second = name.second
+			
+			
+			// new ways
+			
+			const name = {
+				first : "sourav",
+				second : "suman"
+			}
+			
+			const {first,second} = name
+			const {first:f, second:s} = name
+	
+	2. Arrays 
+	
+			// old ways
+			const name = ["sourav","suman"]
+			const first = name[0]
+			const second = name[1]
+			
+			// new way
+			const name = ["sourav","suman"]
+			const [first,second] = name
+
+*********************************************************************************************************************************
+
+spread operator : 
+
+const arr = [1,2,4,5]
+const arrcopy = [...arr]
+
+const obj = {name: "sourav suman", age: 28}
+const objcopy = {...obj}
+
+array concat : 
+let arr1 = [2,4,1,5]
+let arr2 = 	[2,1,1,9]
+
+arr1 = [...arr1, ...arr2]
+
+
+object merge : 
+
+let obj1 = {x:2,o:"sourav"}
+let obj2 = {i:0,g:"soav"}
+
+obj1 = {...obj1,...obj2}
+
+
+*********************************************************************************************************************************
+
+Optional chaining : 
+
+var person = {
+	name: "bruce Wayne",
+	details: {
+		age: 28,
+		address: {
+			city: "Gotham"
+		}
+	}
+}
+
+//old ways
+console.log(person.details && person.details.address && person.details.address.city)
+// new ways
+console.log(person?.details?.address?.city)
+	
+var person = {
+	name: "bruce Wayne",
+	details: {
+		age: 28,
+		address: {
+			city: "Gotham"
+		}
+	}, hobbies : [
+		{
+			name: "Crime fighting"
+		}
+	]
+}	
+
+old ways
+console.log(person.hobbies && person.hobbies.length && person.hobbies[0] && person.hobbies[0].name)
+new ways
+console.log(person?.hobbies?.[0]?.name)
+
+
+*********************************************************************************************************************************
+
+Nullish Coalescing Operator : 
+
+	Logical OR operator
+
+		const name = "sourav"
+		const userName = name || "guest"
+		console.log(userName) // op - sourav
+		
+		const name = null
+		const userName = name || "guest"
+		console.log(username)  // op - guest
+		
+		const name = ''
+		const userName = name || "guest"
+		console.log(userName)  // op - guest  expected op - ''
+		
+		const count = 0
+		const views = count || "N/A"
+		console.log(views)  // op - N/A  expected op - 0
+		
+	Nullish Coalescing Operator
+	
+		const name = ''
+		const userName = name ?? "guest"
+		console.log(userName)  // op - '' 
+		
+		
+		const count = 0
+		const views = count ?? "N/A"
+		console.log(views)  // op - 0
+		
+		
+		
+*********************************************************************************************************************************
+
+Template Literals
+Ternary Operator
+Arrow Functions
+Import and Export 
+
+
+*********************************************************************************************************************************
+
+Lifecycle methods in React :
+
+Mounting   -  constructor, static getDerivedStatefromProps, render, 
+			  componentDidMount(runs after component is mounted and rendered to the DOM) : use for asynchronous api call
+Updating  -  componentDidUpdate(called right after updating happens) : if you set state in this lifecycle method, then try to do it based on condition. As it will go for infinite loop
+Unmounting - componentWillUnmount( invoked just before the component is removed from DOM ) : use to remove event listeners, clear intervals(all needed cleanup ) 
+Error Handling
+
+React HOOKS : 
+
+useEffect - for running it during mounting or unmounting use empty dependency array
+			for running when update happened then use dependency in array or don't pass array at all
+
+
+*********************************************************************************************************************************
+
+example of useEffect - class component vs functional component 
+
+import React, {Component} from 'react'
+
+class ClassCounterOne extends Component{
+
+	constructor(){
+		super()
+		this.state = {
+			count: 0
+		}
+	}
+
+	componentDidMount(){
+		document.title = `Clicked ${this.state.count} times`
+	}
+	
+	componentDidUpdate(prevProps,prevState){
+		document.title = `Clicked ${this.state.count} times`
+	}
+
+	render(){
+		return(
+			<div>
+				<button onClick={() => this.setState({count: this.state.count+1})}>`You click ${count}`</button>
+			</div>
+		)
+	}
+
+}
+
+
+
+import React, {useState, useEffect} from 'react'
+
+function HookCounterOne(){
+	const [count,setCount]=useState(0)
+	
+	useEffect(() => {
+		document.title = `You clicked ${count} times`
+	})
+
+	return (
+		<div>
+			<button onClick={() => setCount(count + 1)}>`clicked ${count} time`</button>
+		</div>
+	)
+}
+
+*********************************************************************************************************************************
+
+run useEffect conditionally : 
+
+import React, {Component} from 'react'
+
+class ClassCounterTwo extends Component{
+	
+	constructor(props){
+		super(props)
+		this.state = {
+			count : 0,
+			name : ''
+		}
+	}
+	
+	componentDidMount(){
+		document.title = `You clicked ${count} times`
+	}
+	
+	componentDidUpdate(prevProps, prevState){
+		if(prevState.count != this.state.count){
+			console.log("Updating document title")
+			document.title = `You clicked ${this.state.count} times`
+		}
+	}
+	
+	render(){
+		return(
+			<div>
+				<input type="text" value={this.state.name} onChange={(e) => this.setState({name: e.target.value	})}/>
+				<button onClick={() => this.setState({count: this.state.count +1})}>`Click ${this.state.count} times`</button>
+			</div>
+		)
+	}
+	
+}
+
+export default ClassCounterTwo
+
+
+import React , {useState,useEffect} from 'react'
+
+function HookCounterTwo(){
+	
+	const [count, setCount] = useState(0)
+	
+	const [name, setName] = useState('')
+	
+	useEffect(() => {
+		console.log("useEffect - Updating document title")
+		document.title = `You clicked ${count} times`
+	}, [count])
+	
+	return (
+		<div>
+			<input type="text" value{name} onChange={(e) => setName(e.target.value)}/>
+			<button onClick={() => setCount(count + 1)}>`Clicked ${count} times`</button>
+		</div>
+	)
+}
+
+
+***************************************************************************************************
+
+Why <!DOCTYPE html>  =>  
+
+Doctype stands for Document Type Declaration. It informs the web browser about the type and version of HTML used 
+in building the web document. This helps the browser to handle and load it properly.

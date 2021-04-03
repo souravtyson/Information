@@ -1,0 +1,311 @@
+
+IIFE - Immediately invoked function expression
+
+const funct = () => {
+	 {
+   		let l = "a"			
+      var v = "v"
+   }
+   
+   console.log(v)     // v										v,a
+   console.log(l)     // l is not defined
+}
+
+
+funct()
+
+
+(function funct() {
+	 {
+   		let l = "a"			
+      var v = "v"
+   }
+   
+    console.log(v) // 
+  	console.log(l) 
+})()
+
+
+async axios.get().then(response => )
+async axios.get().then()
+
+promise.all().then();
+
+
+redux
+promise
+closure
+
+object.assign
+object and array - nested object
+shallow copy vs deep copy
+
+nested object value 
+
+typeof bar === "object" - what difficulty how to overcome Array.isArray()
+
+typeof undefined			
+typeof null
+
+console.log(false == "0")  //true
+console.log(false === "0") // false
+
+
+array = []
+typeof array == "object"   // true
+typeof array === "object"  // true
+
+implementation of deepcopy algorithm 
+
+
+virtual dom vs original dom - reconciliation
+useContext
+
+
+
+const funct = () => {
+
+	{
+		let l = "l"
+		var v = "v"
+	}
+	
+	console.log(v)  // v
+	console.log(l)  // l is undefined  // works
+}
+
+funct()
+
+
+*********************************************************************************************************************
+
+const c = (function funct(){
+	{
+		let l = "l"
+		var v = "v"
+	}
+	
+	console.log(v)  // v
+	console.log(l)
+	
+
+})()
+
+
+(function() {
+    console.log(1);     
+    setTimeout(function(){console.log(2)}, 1000);
+    setTimeout(function(){console.log(3)}, 0);
+    setTimeout(function(){console.log(5)}, Infinity);
+    console.log(4);
+})();
+
+let arr = [
+{id :1, mark: 40},
+{id :2, mark: 50},
+{id :3, mark: 60}
+];
+
+//let arr2 = []
+//arr.forEach((item) => {
+	//console.log(item)
+//  item.mark = item.mark + 10
+//  arr2.push(item)
+//})
+//console.log(arr2)
+
+//let x = arr.filter((item) => 	item.mark >= 50) 
+
+//console.log(x)
+
+var x = "sourav"
+let y = ""
+for (i =x.length-1;i>=0;i--){
+	y = y+x[i]
+}
+console.log(y)
+
+********************************************
+
+virtual dom
+version used
+lifecycle method of react
+react fragments
+useEffect hooks in functional component
+higher order components
+redux
+es6 features
+event debouncing
+closure
+
+(function() {
+    console.log(1);     
+    setTimeout(function(){console.log(2)}, 1000);
+    setTimeout(function(){console.log(3)}, 0);
+    setTimeout(function(){console.log(5)}, Infinity);
+    console.log(4);
+})();
+
+*********************************************
+
+feature of react
+lifecycle method
+componentdidupdate 
+pure component
+higher order component
+how can i do updation of props
+react router
+use of arrow funtion 
+redux
+map vs filter
+prototyped inheritence
+call vs bind vs apply
+closure
+object prototyped
+currying
+event bubbling
+design pattern
+event loop
+concurrency in js
+
+
+let arr = [
+{id :1, mark: 40},
+{id :2, mark: 50},
+{id :3, mark: 60}
+];
+
+//let arr2 = []
+//arr.forEach((item) => {
+	//console.log(item)
+//  item.mark = item.mark + 10
+//  arr2.push(item)
+//})
+//console.log(arr2)
+
+//let x = arr.filter((item) => 	item.mark >= 50) 
+
+//console.log(x)
+
+var x = "sourav"
+let y = ""
+for (i =x.length-1;i>=0;i--){
+	y = y+x[i]
+}
+console.log(y)
+
+css/html
+why !doctype
+
+**************************************************
+
+
+1. version 16.8
+2. hooks
+3. context api
+4. const shape = {
+
+  radius: 10,
+
+  diameter() {
+
+    return this.radius * 2;
+
+  },
+
+  perimeter: () => 2 * Math.PI * this.radius,
+
+};
+
+console.log(shape.diameter()); 
+console.log(shape.perimeter()); 
+
+5. closure
+6. generator function
+7. css mixins
+8. redux
+
+************************************************
+
+how many prototype objects are in the chain for the following array
+
+
+
+<!--Given a string print the total number of palindromic substrings having length > 1.  [ * should not use library function ]
+
+Example
+
+Input:
+
+	abaa
+  
+  
+
+Output:
+
+	2
+  -->
+  
+  
+*****************************************************
+
+
+let str = 'first';
+
+str.prototype.c = () => {
+
+	}
+
+var x = 12
+const c = '23'
+let y = 13
+
+
+const profile={"name": "sourav", "phone": "8990887"}
+profile.name="saket"
+
+
+
+call
+apply
+bind
+
+
+function x (first,second) {
+	
+}
+
+x.call(profile,23,3)
+x.apply(profile,[23,3])
+x.bind(profile)
+
+x()
+
+state = {
+	x: 0
+}
+
+this.setState({
+	x: 2
+})
+
+
+const age=[3,5,11,9,4]
+
+
+const updated = age.map((a) => {
+	a + 3
+})
+
+
+function secondHighestNumber(){
+	if(age.length > 1){
+	var highest = age[0];
+	for(let m=1;m<age.length;m++){
+		if(age[m-1] > highest){
+			highest=age[m-1]
+		}
+	}
+	}
+	
+}
