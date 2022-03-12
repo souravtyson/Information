@@ -51,3 +51,77 @@ class RenderInput extends React.Component {
     );
   }
 };
+
+********************************************************************
+
+comp - freshworks
+
+import React, { useState } from 'react';
+import './style.css';
+
+//Dynamic add the city names in the page via input text and click button in React and display on the page?
+
+export default function App() {
+  const [city, setCity] = useState(['Bangalore']);
+  const [newCity, setNewCity] = useState('');
+  const setCityToVar = () => {
+    setCity([...city, newCity]);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={newCity}
+        onChange={(e) => setNewCity(e.target.value)}
+      />
+      <button onClick={setCityToVar}>Add city</button>
+      {city.map(function (item, i) {
+        return <li>{item}</li>;
+      })}
+    </div>
+  );
+}
+
+
+
+****************************************************************************
+
+
+
+import React from "react";
+
+function App(props){
+	const [name, setName] = useState("")
+
+	return (
+		<div></div>
+	);
+}
+
+
+export default App 
+
+input - props
+output - JSX
+
+
+import React, {Component} from "react"; 
+
+class App extends Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			name: ""
+		}
+	}
+
+	render() {
+		return(
+			<div></div>
+		)
+	}
+}
+
+
+export default App
