@@ -60,3 +60,15 @@ Both Error and Exception class retain inside java.lang package and is a sub-clas
 Error : java.lang.Error represents the error which are mainly caused by environment in which application is running. Recovering from error is not possible. The only solution is to terminate the execution.
 
 Exception : java.lang.Exception are maily caused by the application itself. Recovering from exception is possible by using try/catch block or throwing exception back to caller.
+
+***********************************************************************************
+
+how to make class immutable?
+What is Cyclic barrier?
+What is reentrant lock?
+What is lock?
+Transient in pojo class?
+Concurrent hashmap vs hashtable
+Executorservice submit vs execute
+Stack data structures 
+
