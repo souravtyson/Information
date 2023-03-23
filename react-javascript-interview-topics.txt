@@ -309,3 +309,17 @@ function secondHighestNumber(){
 	}
 	
 }
+
+******************************************
+
+function mult(x){
+	return function(y){
+		return function(z){
+			return x * y * z
+		}
+	}
+}
+
+
+mult(3)(4)(2)
+mult(3,4,2)
