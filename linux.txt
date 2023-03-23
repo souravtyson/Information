@@ -332,6 +332,150 @@ curl request example  with for loop
 5. for i in "${uuids[@]}"; do echo $i; curl "http://schulfinder.kultus-bw.de/api/school?uuid=$i&_=1595266847"   -H 'Connection: keep-alive'   -H 'Accept: application/json, text/javascript, */*; q=0.01'   -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'   -H 'X-Requested-With: XMLHttpRequest'   -H 'Referer: http://schulfinder.kultus-bw.de/'   -H 'Accept-Language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6'   --compressed   --insecure; done
 
 
+6. curl --data "value={"mpin":"1111"}" "http://10.130.242.65:8445/PGSignInOTPEncryption/WalletHeaderEncryption"
+
+ 
+7. curl --data "username=9663756120&amp;password=Mumbai02&amp;grant_type=password" "https://10.140.206.30:8080/auth/oauth/v2/token"
+
+
+******************************************************************************************************************************************
+
+
+find top transaction -                                      
+grep 'NBISM' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+grep 'NBBAR' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+grep 'NBP2M' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+grep 'NBBPCL' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+grep 'NBISUP' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+grep 'NBBOL' report.txt | sort -rn -t, -k6,6 | head -2 >> toptransaction.txt
+
+grep -rl 'sundar' ./utility | xargs sed -i 's/sundar/ubuntu/g'
+grep -R '/home/' utility/
+
+
+cat socket.txt | tr -d '\n' | sed 's/TIME:/\'$'\n/g' | awk '/ESTABLISHED/ {gsub(/18_01_2017_/,"",$1);print $1"\t"$2}'
+cat socketsstate.txt | tr -d '\n' | sed 's/TIME:/\'$'\n/g' |grep '18_01_2017' | awk '/ESTABLISHED/ {gsub(/18_01_2017_/,"",$1);print $1"\t"$2}'
+cat socket.txt | tr -d '\n' | sed 's/TIME:/\'$'\n/g' |grep '11_01_2017_' | awk '/ESTABLISHED/ {gsub(/11_01_2017_/,"",$1);print $1"\t"$2}'
+cat socketsstate.txt | tr -d '\n' | sed 's/TIME:/\'$'\n/g' |grep '18_01_2017_.*ESTABLISHED' | awk '{for(i=1;i<=NF;i++){ if($i=="ESTABLISHED"){gsub(/18_01_2017_/,"",$1) print $1"\t"$i"\t"$(i-1)} } }'
+cat socket.txt | tr -d '\n' | sed 's/TIME:/\'$'\n/g' |grep '11_01_2017_.*ESTABLISHED' | awk '{for(i=1;i<=NF;i++){ if($i=="ESTABLISHED"){gsub(/11_01_2017_/,"",$1); print $1"\t"$(i-1)"\t"$i;} if($i=="TIME_WAIT") {gsub(/18_01_2017_/,"",$1)}; print $1"\t"$(i-1)"\t"$i }}'
+
+ 
+
+du -a / | sort -n -r | head -n 10
+
+
+************************************************************************************************************************************** 
+
+redis-cli --stat -h 10.130.242.36
+
+ 
+./redis-benchmark -c 1000 -n 100000 -q -h 127.0.0.1
+
+
+java -jar redis-stat-0.4.14.jar -h 10.130.242.36:6379 10.130.242.36:6380 10.130.242.36:6381 10.130.242.36:6382 10.130.242.38:6379 10.130.242.38:6380 10.130.242.38:6381 10.130.242.38:6382 --server=63790 5 -v --no-color
+
+**************************************************************************************************************************************
+
+zip -r backup.zip *
+
+mv !(bkup) bkup/
+
+rm -rf *. !(backup.zip)
+
+unzip backup.zip
+
+**************************************************************************************************************************************
+
+jvisualvm
+
+jmap -histo:live 122680 | head
+
+jmap -heap 122680 | head
+
+jstat -gc 122680  2000 <amount>
+
+sudo ./jstat -gcutil -t 8825 2000 25000 >> /tmp/gcutil_20Jan_53_closure.log &
+sudo ./jstat -gcutil -t 19563 2000 25000 >> /tmp/gcutil_20Jan_59_closure.log &
+
+21234/2634 is the process id
+
+
+**************************************************************************************************************************************
+ 
+
+NODE_ENV=production node --prof app.js
+
+**************************************************************************************************************************************
+ 
+
+tibco jmx enabled:
+
+ 
+
+Jmx.Enabled=true
+
+java.property.com.sun.management.jmxremote=true
+
+java.property.com.sun.management.jmxremote.port=<port number>
+
+java.property.com.sun.management.jmxremote.authenticate=false
+
+java.property.com.sun.management.jmxremote.ssl=false
+
+
+ 
+**************************************************************************************************************************************
+awk -F ';' '{x="6785c5c0-1386-451a-8b61-f1"; print x$1}' templates/csv/Wallet/Wallet_OpenLoop_User_Recharge.csv
+
+awk '{printf $1" "$7" ""%x\n",$7}'
+
+awk '/errors/ {match($0,/errors/); print substr($0, RSTART-1, RLENGTH+9); }' tsung.dump
+
+awk -F ',' '{print $2 - $1}' user_00.csv
+
+awk '{print $2}' tsung.log | grep 'tr_' | sort | uniq
+
+
+awk -F'|' '
+
+{
+
+  for(i=1;i<=NF;i++) {
+
+    if($i == "ESTABLISHED")
+
+      printf("Column %d \n", i-1)
+
+  }
+
+  exit 0
+
+}
+
+' socket.txt
+
+awk '{print $2}' tsung.log|grep "tr_" | sort -n | uniq  > /home/sundar/avekshaa/jiomoney/utility/percentile/MIXLOAD.txt
+
+cat match.log | awk '{print $6}' | sort -n | uniq -c
+
+cat access.log | awk '{print $4}'  | sort -n  | uniq -c
+
+ 
+**************************************************************************************************************************************
+
+
+sed "s/dumptraffic=\"false\"/dumptraffic=\"true\"/" copy.xml
+
+sed -i "s/dumptraffic=\"false\"/dumptraffic=\"true\"/" copy.xml
+
+sed -n '/19:13:13 /,/19:284:00/p' access.log_success_3 > resp_URL.txt
+
+:%s/$/\*/g
+
+sed -n '/17:55:35/,/18:11:33/p' access.log_success_3 > resp_URL.txt
+
+sed -n '/14\/Nov\/2017:22:20:31/,/14\/Nov\/2017:22:50:28/p' access.log-20171115 > ngi_244_53_api_res
+
 
 
 
