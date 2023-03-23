@@ -408,4 +408,11 @@ let c = a.filter ( item => item / 2 == 0 ) []
 
 ********************************************************
 
+let str ='Welcome back'
+
+const inArr = [...str]
+inArr.map((char, position) => { if(char === 'e') return position;} )
+
+str.split('').reverse().join('')
+
 
