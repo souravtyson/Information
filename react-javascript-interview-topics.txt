@@ -323,3 +323,89 @@ function mult(x){
 
 mult(3)(4)(2)
 mult(3,4,2)
+
+
+********************************************
+
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+sayHi();
+
+
+*****************************************
+
+const obj = { a: 1, b: 2 }
+
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+
+********************************************************
+
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+
+********************************************************
+
+let arr1 = [{
+id : 1,
+name : 'suresh'
+},{
+id : 2,
+name : 'Siva'
+}]
+
+let arr2 = [{
+id : 1,
+location : 'india'
+}]
+
+
+let modified = arr1.map(details => {
+		var filtered = arr2.filter(obj => details.id === obj.id)
+    let final = {
+    	...details
+      }
+    if(filtered.length){
+    	final['location'] = filtered[0].location
+    }
+    return final
+})
+
+
+let output = [{
+id : 1,
+name : 'suresh',
+location : 'india'
+},{
+id : 2,
+name : 'Siva'
+}]
+
+********************************************************
+
+let a = [1,2,3,4,5,6]
+let b = a.map ( (item) => { return item / 2 == 0 }) [false,false,false,false,false,false]
+let c = a.filter ( item => item / 2 == 0 ) []
+
+
+********************************************************
+
+
