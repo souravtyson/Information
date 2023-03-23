@@ -125,3 +125,12 @@ class App extends Component{
 
 
 export default App
+
+
+****************************************************************
+
+use render function to return the JSX
+render function can have console function or some javascript code along with return statement
+render function runs everytime when components re-renders
+state is not supported in functional components until the entry of react hooks
+in class based component this will point to instance of the component
