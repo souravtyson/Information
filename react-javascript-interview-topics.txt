@@ -401,6 +401,7 @@ name : 'Siva'
 
 ********************************************************
 
+
 let a = [1,2,3,4,5,6]
 let b = a.map ( (item) => { return item / 2 == 0 }) [false,false,false,false,false,false]
 let c = a.filter ( item => item / 2 == 0 ) []
@@ -414,5 +415,33 @@ const inArr = [...str]
 inArr.map((char, position) => { if(char === 'e') return position;} )
 
 str.split('').reverse().join('')
+
+
+
+********************************************************
+
+
+const StateComponent = () => {
+
+	const [local, setLoacl] = useState("");
+  
+  return (
+  	<div>
+    	<p>{local}</p>
+    </div>
+  )
+
+}
+
+const action = {
+	type: "UPDATE",
+  payload
+}
+
+const reducer = (state= initialState, action) => {
+	switch(action.type)
+  	case 'UPDATE': return state + 1
+    case default : return state
+}
 
 
