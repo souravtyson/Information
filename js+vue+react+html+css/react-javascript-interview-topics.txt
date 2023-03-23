@@ -445,3 +445,88 @@ const reducer = (state= initialState, action) => {
 }
 
 
+*********************************************************
+
+
+question for enphase -
+
+Question - 1 - 
+Maintain redux state when page is reloaded in redux/vuex
+ 
+Question - 2
+
+rendered the list - done
+mark sublist as complted on click - done
+mark the parent list completed on complete of subtask - not done
+
+[
+  {
+    task: "Household",
+    subtasks: ["Do laundry", "Organize desk", "Mop floors"],
+  },
+  {
+    task: "Study",
+    subtasks: ["Read saved articles", "Do a coding challenge"],
+  },
+  {
+    task: "Build portfolio",
+    subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"],
+  },
+]
+
+
+
+
+
+
+import "./styles.css";
+import { useState } from "react";
+
+export default function App() {
+  const subTaskSelected = (event) => {
+    console.log(event);
+    if (event.target.style.textDecoration) {
+      event.target.style.removeProperty("text-decoration", "line-through");
+    } else {
+      event.target.style.setProperty("text-decoration", "line-through");
+    }
+  };
+
+  const task = [
+    {
+      task: "Household",
+      subtasks: ["Do laundry", "Organize desk", "Mop floors"]
+    },
+    {
+      task: "Study",
+      subtasks: ["Read saved articles", "Do a coding challenge"]
+    },
+    {
+      task: "Build portfolio",
+      subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"]
+    }
+  ];
+
+  return (
+    <div className="App">
+      <ul>
+        {task.map((t, index) => {
+          return (
+            <li key={t + index}>
+              {t.task}
+              <ul>
+                {t.subtasks.map((subT, index) => {
+                  return (
+                    <li key={subT + index} onClick={subTaskSelected}>
+                      {subT}
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
