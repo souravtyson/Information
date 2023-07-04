@@ -371,17 +371,18 @@ box model - sequence
 		
 14. 
 
-		Function sleep (t){
-//Complete the logic here
+sleep method in java script
 
-return new promise(resolve => setTimeout({},t);
+function sleep(t){
+ return new Promise(resolve => 
+	setTimeout(resolve,t)
+	) 
 }
 
-
-Async Function toBeSleep () {
-console.log(“hello”);
-Await sleep(1000);
-console.log(“Bye”);
+async function toBeSleep(){
+    console.log("hello");
+    await sleep(1000);
+    console.log("Bye");
 }
 
 //output
@@ -403,7 +404,7 @@ var say = greet('Bruce');
 // Calling the say() function should log "Hello Bruce"
 say();
 
-15.  
+16.  
 		call vs apply
 
 
@@ -437,18 +438,18 @@ puzzle - 5 lit jar
 
 [1,4,2,5] => find the missing number (using n(n+1)/n)
 
-16.
+17.
  
  add(2,1)
  add(2)(1)
  
  implement common method
  
-17.
+18.
 
 	find intersection of two arrays 
 
-18. 
+19. 
 
 	useData = {
 		name: 'sourav',
@@ -461,3 +462,154 @@ puzzle - 5 lit jar
 	}
 
     o/p = {user_name: 'sourav', user_address_street_town: 'madhubani', user_address_street_country: 'India' }
+	
+	
+	************************************************    INFOSYS    ******************************************
+	
+20. code in react for counter
+
+21. remove duplicate element in array
+	const x = [1,2,4,4,6,2,1]
+
+22. get elements which are duplicate in array
+		const x = [1,2,4,4,6,2,1]		
+		const k = []
+
+		x.forEach(elem => {
+		if(k.includes(elem)){
+		console.log(elem)
+		}else{
+			k.push(elem)
+		}    
+		})
+	
+23. any middleware used in redux
+24. redux architecture
+25. how would you implement reducer
+26. es6 new feature
+	spread
+	null coalescing operator
+
+
+27. spread vs rest operator
+
+28. destructuring in javascript 
+
+{id, age} = {id:1,name: sourav, age: 30}
+
+const arr = [{id:1,name: sourav, age: 30}, {id:1,name: sourav, age: 30}]
+
+const [dest1, dest2] = arr
+
+
+29. how would you render the below object in react- 
+const arr = {
+	[
+	{
+		"id": 1,
+		"dob": "08-09-1993",
+		"name": "sourav"
+	},
+	{
+		"id": 2,
+		"dob": "08-09-1992",
+		"name": suman 
+	}
+	]
+}
+Object.keys(arr).map(x => console.log(x.id) )
+
+
+	************************************************    INFOSYS    ******************************************
+	
+	
+	
+	
+	*********************************************************  ENPHASE ******************************************
+
+
+30. 
+		Maintain redux state when page is reloaded in redux/vuex
+ 
+ 
+31. 
+
+rendered the list - done
+mark sublist as complted on click - done
+mark the parent list completed on complete of subtask - not done
+
+[
+  {
+    task: "Household",
+    subtasks: ["Do laundry", "Organize desk", "Mop floors"],
+  },
+  {
+    task: "Study",
+    subtasks: ["Read saved articles", "Do a coding challenge"],
+  },
+  {
+    task: "Build portfolio",
+    subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"],
+  },
+]
+
+
+
+
+
+
+import "./styles.css";
+import { useState } from "react";
+
+export default function App() {
+  const subTaskSelected = (event) => {
+    console.log(event);
+    if (event.target.style.textDecoration) {
+      event.target.style.removeProperty("text-decoration", "line-through");
+    } else {
+      event.target.style.setProperty("text-decoration", "line-through");
+    }
+  };
+
+  const task = [
+    {
+      task: "Household",
+      subtasks: ["Do laundry", "Organize desk", "Mop floors"]
+    },
+    {
+      task: "Study",
+      subtasks: ["Read saved articles", "Do a coding challenge"]
+    },
+    {
+      task: "Build portfolio",
+      subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"]
+    }
+  ];
+
+  return (
+    <div className="App">
+      <ul>
+        {task.map((t, index) => {
+          return (
+            <li key={t + index}>
+              {t.task}
+              <ul>
+                {t.subtasks.map((subT, index) => {
+                  return (
+                    <li key={subT + index} onClick={subTaskSelected}>
+                      {subT}
+                    </li>
+                  );
+                })}
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+
+
+	*********************************************************  ENPHASE ******************************************

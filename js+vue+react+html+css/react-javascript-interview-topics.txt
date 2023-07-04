@@ -445,88 +445,119 @@ const reducer = (state= initialState, action) => {
 }
 
 
+***************************************************************
+
+HDFC	
+
+1. const myMoney = {
+quarters: 4,
+dimes: 10,
+nickels: 20,
+pennies: 100
+}
+
+for (const coin of myMoney){
+console.log(`${coin}: ${myMoney[coin]}`);
+}
+
+2. const myArr = [1,2,3];
+const arrTwo = myArr.splice(0,4).slice(0,2);
+arrTwo[0] = 9;
+console.log(arrTwo);
+
+
+3. const person1 = {
+name: 'Willie',
+address: {
+city: 'Austin',
+state: 'Texas'
+}
+};
+
+const person2 = {...person1};
+
+person2.name = 'Waylon';
+person2.address.city = 'Fort Worth';
+
+console.log(person1.address.city);
+
+
+let a=10 ;
+{
+var a=50 ;
+}
+console.log(a);
+
+const arr = [1,2,3,1,4,3]
+
+const uniq = []
+
+arr.forEach(x => {
+	if(!uniq.includes(x)){
+	  uniq.push(x)
+	}
+})
+
+console.log(uniq)
+
 *********************************************************
 
-
-question for enphase -
-
-Question - 1 - 
-Maintain redux state when page is reloaded in redux/vuex
- 
-Question - 2
-
-rendered the list - done
-mark sublist as complted on click - done
-mark the parent list completed on complete of subtask - not done
-
-[
-  {
-    task: "Household",
-    subtasks: ["Do laundry", "Organize desk", "Mop floors"],
-  },
-  {
-    task: "Study",
-    subtasks: ["Read saved articles", "Do a coding challenge"],
-  },
-  {
-    task: "Build portfolio",
-    subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"],
-  },
-]
-
-
-
-
-
-
-import "./styles.css";
-import { useState } from "react";
-
-export default function App() {
-  const subTaskSelected = (event) => {
-    console.log(event);
-    if (event.target.style.textDecoration) {
-      event.target.style.removeProperty("text-decoration", "line-through");
-    } else {
-      event.target.style.setProperty("text-decoration", "line-through");
-    }
-  };
-
-  const task = [
-    {
-      task: "Household",
-      subtasks: ["Do laundry", "Organize desk", "Mop floors"]
-    },
-    {
-      task: "Study",
-      subtasks: ["Read saved articles", "Do a coding challenge"]
-    },
-    {
-      task: "Build portfolio",
-      subtasks: ["Choose tech stack", "Design pages", "Develop", "Publish"]
-    }
-  ];
-
-  return (
-    <div className="App">
-      <ul>
-        {task.map((t, index) => {
-          return (
-            <li key={t + index}>
-              {t.task}
-              <ul>
-                {t.subtasks.map((subT, index) => {
-                  return (
-                    <li key={subT + index} onClick={subTaskSelected}>
-                      {subT}
-                    </li>
-                  );
-                })}
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
+how do you implement caching in frontend application
+why do we need defer script
+default position value of any html element
+flex vs grid
+em vs rem
+what are css preprocessors
+how do we achieve responsiveness
+what is webpack
+do you perform unit testing. WHta library do you use. Why do we jest
+how to achieve inheritance in function javascript
+how does javascript event delegration works.
+what are generator function
+what is difference between controlled and uncontrolled component
+why do we need useId
+lifecycle method used by useEffect
+lifecycle methods in error boundries
+how do we connect our redux store to our component, what hooks are available for that
+how do we perform lazy loading in react
+what is suspense
+what is React js
+Lifecycle methods vs Hooks
+what is unidirectional data  flow n react js
+componentdidupdate vs componentdidmount
+use useEffect in diffent ways
+what is react memo - give ex for it - benefits of it
+what is HOC , explain - any use case
+mounting vs rendering
+how to optimize react application. any example(pagination, infinite scroll, caching)(keep one example ready if they ask you can give answer)
+how to pass data from child to parent - callback, 
+what are different ways to call the apis
+what is react context api
+concept of provider and consumer
+features of react latest version 
+what is redux & how it works
+what are middlewares, what hapens if they are not there
+redux thunk vs saga
+what are promises in JS
+what is callback hell in js, 
+async/await
+Explain some features of ES6
+diff between var, let, const
+shallow vs deep copy
+map vs filter
+prototype and how it works (application of it - inheritance)
+arrow function and advantages of arrow funtion
+when we use bind vs call & apply
+spread vs rest parameter
+get second last element for the array (array size may change)
+type coercion question
+element vs component
+what are pure components
+refs in react
+forwardref in react
+what is virtual dom 
+interceptors, give example of interceptors
+react fiber
+briefly explain life cycle methods of react
+in which case you will use HOC
+how to manage nested routes in terms of role based routing(restrict some page based on roles of user)

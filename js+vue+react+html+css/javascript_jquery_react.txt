@@ -260,8 +260,7 @@ const detail = {
 	age
 }
 
-
-*********************************************************************************************************************************
+	******************************************************************
 
 
 destructuring assignment : 
@@ -550,7 +549,7 @@ use render function to return the JSX
 render function can have console function or some javascript code along with return statement
 render function runs everytime when components re-renders
 state is not supported in functional components until the entry of react hooks
-in class based component this will point to instance of the component
+in class based component "this" keyword will point to instance of the component
 
 ****************************************************************************
 
@@ -677,3 +676,43 @@ export default function App() {
     </div>
   );
 }
+
+
+
+***********************************************************************
+
+shallow copy vs deep copy
+
+// shallow copy in js
+
+const original = [1,2,3,4,[5,6],7]     
+const shallowCopy = Object.assign([], original)
+
+// changing value at specific index
+shallowCopy[2] = 15
+shallowCopy[4][1] = 21
+
+console.log(shallowCopy)  // [1,2,15,4,[5,21],7]
+console.log(original)  // [1,2,3,4,[5,21],7]
+
+// it works same way if done in original array also
+
+
+
+// ex for deep copy in js
+
+const original = [2,4,6,8,[10,12],14]
+// deep copy
+// to create deep copy you can use the below code
+const deepCopy = JSON.parse(JSON.stringify(original))
+
+deepCopy[2] = 23
+deepCopy[4][1] = 13
+
+console.log(deepCopy)    // [2,4,23,8,[10,13],14]
+console.log(original)    // [2,4,6,8,[10,12],14]
+
+// works the same way if we change in original
+// array also. This concept of deep copy will 
+// work the same way if we create deep copy for 
+// object.
