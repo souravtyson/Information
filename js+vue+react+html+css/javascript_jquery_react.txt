@@ -716,3 +716,148 @@ console.log(original)    // [2,4,6,8,[10,12],14]
 // array also. This concept of deep copy will 
 // work the same way if we create deep copy for 
 // object.
+
+
+*****************************************************************
+
+Server Side request forgery(SSRF)
+Cross site scripting(CSS)
+Timing attack
+Prototype Pollution
+NoSQL injection
+regular expression denial of service(redos attack)
+security misconfiguration
+mass assignment attack
+host header injection attack
+
+******************************************************************
+
+/* 
+    Given an array of positive integers nums and a positive integer target, return the minimal length of a 
+subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+ 
+Example 1:
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+*/
+
+const nums = [2, 3, 1, 2, 4, 3];
+let target = 7;
+function getMinimalTargetlength() {
+  let freq = {};
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    let sum = nums[i];
+    count++;
+    for (let x = i + 1; x < nums.length; x++) {
+      sum = sum + nums[x];
+      count++;
+      if ((sum == target && freq[target] > count) || !freq[target]) {
+        freq[target] = count;
+      }
+    }
+    count = 0;
+  }
+  return freq[target];
+}
+
+
+*******************************************************************
+
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+// An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+// Input: s = "rat", t = "car"
+// Output: false
+// Input: s = "anagram", t = "nagaram"
+// Output: true
+
+
+
+function isAnagram(str1, str2) {
+  if (str1.length != str2.length) {
+    return false;
+  }
+  let charFrequency = {};
+  for (let c of str1.toLowerCase()) {
+    if (charFrequency[c]) {
+      charFrequency[c] = charFrequency[c] + 1;
+    } else {
+      charFrequency[c] = 1;
+    }
+  }
+  console.log(charFrequency);
+  for (let c2 of str2.toLowerCase()) {
+    if (!charFrequency[c2]) {
+      return false;
+    }
+    charFrequency[c2] = charFrequency[c2] - 1;
+  }
+  return true;
+}
+
+
+// console.log(isAnagram("rat", "cat"));
+// console.log(isAnagram("Anagram", "nagaram"));
+// console.log(isAnagram("caar", "carr"));
+
+
+*************************************************************************
+
+const empList = [{
+	"empId": 1, "eName": "emp1", "managerId": 3 
+},
+{
+	"empId": 3, "eName": "emp2", "managerId": 10 
+},
+{
+	"empId": 4, "eName": "emp3", "managerId": 1 
+},
+{
+	"empId": 6, "eName": "emp4", "managerId": 4 
+},
+{
+	"empId": 7, "eName": "emp5", "managerId": 1 
+}
+]
+
+
+const list = []
+
+function getHeirarchyOfReportee(id){
+    const empObj = empList.filter(x => x.empId == id)
+    if(empObj.length == 0){
+        console.log('no employee exist')
+    }else {
+        const managerObj = empList.filter(x => x.managerId == id)
+        if(managerObj.length == 0){
+            list.push(id);
+            return false;
+        }
+        console.log("manger - "+JSON.stringify(managerObj))
+        list.push(id)
+		
+        if(getHeirarchyOfReportee(managerObj[0].empId)){
+            return true;
+        }
+    }
+}
+
+****************************************************
+
+let name = "Sourav"
+
+function displayName(){
+  let count  = 0
+	let id = setInterval(() => {
+  	count ++
+  	console.log(name)
+		if(count === 3){
+    	clearInterval(id)
+    }
+  }, 3000)  
+}
+
+displayName()
+
+*************************************************
