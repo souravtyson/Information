@@ -561,3 +561,50 @@ react fiber
 briefly explain life cycle methods of react
 in which case you will use HOC
 how to manage nested routes in terms of role based routing(restrict some page based on roles of user)
+
+****************************************************
+
+import React, {useState} from 'react';
+
+function Parent() {
+
+  const [ counter, setCounter ] = useState(0);
+  const [name, setName] = useState("");
+  const [arr, setArr] = useState([])
+  const handleClick = () => {
+    // setCounter(counter + 1);
+    var x = [...arr]
+    x.push(name)
+    setArr(name)
+    console.log(arr)
+    setName("")
+  }
+  
+  const setValue = (e) => {
+    setName(e.target.value)
+  }
+  
+  return (
+    <div>
+    
+      <input value={name} onChange={setValue} />
+      <Child title={'Hello Child'}/>
+      <button onClick={handleClick}>Click Me!!</button>
+    
+    </div>
+  )
+}
+
+function Child(props) {
+  const { title } = props;
+  console.log("child component rendering")
+  return (
+    <div>{title}</div>
+  )
+}
+
+export default Parent;
+
+
+
+child component should not be render 
