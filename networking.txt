@@ -20,7 +20,7 @@ url:http://stackoverflow.com/questions/1327115/httpwebrequest-how-get-the-sessio
 ****************************************************************************************************************************************************************
 
 	HTTP status code with short description:
-			"100"  ; Section 10.1.1: Continue
+	  | "100"  ; Section 10.1.1: Continue
           | "101"  ; Section 10.1.2: Switching Protocols
           | "200"  ; Section 10.2.1: OK
           | "201"  ; Section 10.2.2: Created
