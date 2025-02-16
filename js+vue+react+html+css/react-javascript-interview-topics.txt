@@ -561,3 +561,99 @@ react fiber
 briefly explain life cycle methods of react
 in which case you will use HOC
 how to manage nested routes in terms of role based routing(restrict some page based on roles of user)
+
+********************************************************************
+Victoria secret
+
+const myPromise = Promise.resolve(Promise.resolve('Promise'));
+
+function funcOne() {
+  setTimeout(() => console.log('Timeout 1!'), 0);
+  myPromise.then(res => res).then(res => console.log(`${res} 1!`));
+  console.log('Last line 1!');
+}
+
+async function funcTwo() {
+  const res = await myPromise;
+  console.log(`${res} 2!`)
+  setTimeout(() => console.log('Timeout 2!'), 0);
+  console.log('Last line 2!');
+}
+
+funcOne();
+funcTwo();
+
+**************************************************************
+Victoria secret
+
+const myPromise = () => Promise.resolve('I have resolved!');
+
+function firstFunction() {
+  myPromise().then(res => console.log(res));
+  console.log('second');
+}
+
+async function secondFunction() {
+  console.log(await myPromise());
+  console.log('second');
+}
+
+firstFunction();
+secondFunction();
+
+***********************************************************
+Victoria secret
+
+console.log(
+  "Wrtie the Logic to get the Items from Invenotry object where inStock is true for the items that is present in selectedByUser array"
+);
+
+const inventory = {
+  items: [
+    {
+      key: "fruits",
+      options: [
+        {
+          label: "apple",
+          inStock: "true"
+        },
+        {
+          label: "kiwi",
+          inStock: "false"
+        }
+      ]
+    },
+    {
+      key: "veg",
+      options: [
+        {
+          label: "potato",
+          inStock: "false"
+        },
+        {
+          label: "tomato",
+          inStock: "true"
+        }
+      ]
+    }
+  ]
+};
+
+const selectedByUser = [
+  {
+    key: "fruits",
+    label: "apple"
+  },
+  {
+    key: "veg",
+    label: "potato"
+  },
+  {
+    key: "veg",
+    label: "tomato"
+  },
+  {
+    key: "fruits",
+    label: "orange"
+  }
+];

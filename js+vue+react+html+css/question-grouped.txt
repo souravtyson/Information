@@ -613,3 +613,49 @@ export default function App() {
 
 
 	*********************************************************  ENPHASE ******************************************
+
+*******************  TAWANT  **************************
+	
+INSERT INTO student (name, id, marks, subject) VALUES ('Alice', 1, 80, 'Math');
+INSERT INTO student (name, id, marks, subject) VALUES ('Alice', 1, 70, 'Science');
+INSERT INTO student (name, id, marks, subject) VALUES ('Bob', 2, 90, 'English');
+INSERT INTO student (name, id, marks, subject) VALUES ('Bob', 2, 80, 'History');
+INSERT INTO student (name, id, marks, subject) VALUES ('Charlie', 3, 60, 'Geography');
+INSERT INTO student (name, id, marks, subject) VALUES ('Charlie', 3, 50, 'Math');
+ 
+SELECT name, id, SUM(marks) AS total_marks FROM student GROUP BY id, name HAVING SUM(marks) > 150;
+
+remove duplicates - 
+        List<Integer> x = Arrays.asList(1,2,3,2);
+        List<Integer> collect = x.stream().distinct().collect(Collectors.toList());
+        System.out.println(collect);
+
+find occurence of java word in the list of strings - 
+
+        List<String> s1 = Arrays.asList("java scala ruby", "java react spring java");
+        int size = s1.stream().flatMap(x -> Arrays.stream(x.split(" "))).filter(x -> x.equals("java")).collect(Collectors.toList()).size();
+        System.out.println(size);
+
+
+Find the duplicate element and its occurrence in a given string		
+		
+
+        String s = "java scala ruby";
+        String[] words = s.split(" ");
+        Map<String, Integer> map  = new HashMap();
+        for(String k : words ) {
+            String[] o = k.split("");
+            for(String p : o ) {
+                if(map.containsKey(p)) {
+                    map.put(p, map.get(p) + 1);
+                } else {
+                    map.put(p, 1);
+                }
+            }
+        }
+        System.out.println(map);
+
+
+what is cloudwatch?
+
+*******************  TAWANT  **************************

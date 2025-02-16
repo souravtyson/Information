@@ -118,7 +118,7 @@ so in the above code you can see that var x is moved to top of the javascript fi
 There are few scenarios where this hoisting feature doesnot work like : 
 
 1. Variables declared with let or const are not hoisted.
-2. JavaScript only hoists declarations, not initializations.
+2. JavaScript only hoists declarations, not initializations. 
 3. hoisting of function declarations is possible but hoisting of function expression is not.
 
 FOR EXAMPLE : 

@@ -1,7 +1,0 @@
-types of ec2 instanes : 
-
-1. 	general purpose instances
-2.	computer optimized instances
-3.	memory optimized instances
-4.	accelerated computing
-5.	storage optimized
