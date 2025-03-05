@@ -1,0 +1,1465 @@
+1. communication between two microservice
+2. frequency of each elements in "Software Engineer"
+3. functional interface
+4. non-idempotent methods - 
+	POST, Patch (their outcomes may vary with each request) others are idempotent.
+5. have you used caching 
+6. Explain how you would implement a RESTful service using Spring Boot, including the key components and considerations involved.
+5. singleton design pattern
+6. Write an SQL query to find the second highest (or the penultimate) number from the "Numbers" table.
+	SELECT MAX(Number) AS SecondHighest
+	FROM Numbers
+	WHERE Number < (SELECT MAX(Number) FROM Numbers);
+7. jdk vs jre
+8. reverse a string "Software Engineer"
+9. stringbuilder vs stringbuffer vs string
+10. how to make class immutable. 
+11. How would you create an immutable collection in Java?
+	Answer: Java provides methods like List.of(), Set.of(), and Map.of() to create immutable collections. Additionally, Collections.unmodifiableList(), Collections.unmodifiableSet(), and Collections.unmodifiableMap() can wrap existing collections to make them read-only.
+12. What are some examples of immutable classes in Java other than String?
+	Answer: Other immutable classes in Java include:
+	Wrapper classes (Integer, Double, Boolean, etc.)
+	LocalDate, LocalTime, and LocalDateTime in the java.time package
+	BigInteger and BigDecimal
+13. What is JavaScript?
+14. What are the data types supported by JavaScript?
+15. What is the difference between `let`, `const`, and `var`?
+16. Explain how `==` and `===` differ.
+17. What is a closure?
+18. What is hoisting?
+19. Explain the concept of "this" in JavaScript.
+20. What are JavaScript prototypes?
+21. What is the difference between `null` and `undefined`?
+22. How does JavaScript handle asynchronous operations?
+23. What is a promise?
+24. What are async/await functions?
+25. Explain event delegation in JavaScript.
+26. What are JavaScript modules?
+27. How can you prevent a function from being called multiple times?
+28. What is the event loop?
+29. What is the difference between `apply()` and `call()` methods?
+30. What is `bind()` method used for?
+31. What is a JavaScript event loop?
+32. Explain the concept of "event bubbling" and "event capturing".
+33. What is the difference between `deep copy` and `shallow copy`?
+34. What are generator functions?
+35. What is the `new` keyword used for?
+36. How do JavaScript’s `setTimeout` and `setInterval` work?
+37. What is a `WeakMap` and how is it different from a `Map`?
+38. What is a `Set` in JavaScript?
+39. What is `Object.create()` used for?
+40. How does JavaScript’s garbage collection work?
+41. What are "decorators" in JavaScript?
+30. Explain the difference between `prototype` and `__proto__`.
+• What is the purpose of the doctype declaration?
+• Explain the difference between <div> and <span>.
+• What is the box model in CSS?
+• What are pseudo elements and classes.
+• Difference between "visibility: hidden" and "display: none".
+• Explain z-index.
+• Explain the concept of hoisting in JavaScript.
+• What is the difference between let, const, and var?
+• Difference between == and ===?
+• Explain Event loop.
+• What is a closure in JavaScript?
+• Explain the differences between arrow functions and regular functions.
+• Explain currying.
+• Explain Promises.
+• What is the importance of media queries in responsive design?
+• Describe the difference between em and rem units in CSS.
+• What is the flexbox model, and how does it work?
+• Explain the purpose of justify-content and align-items in flexbox.
+• How does CSS Grid differ from Flexbox?
+• Explain the use of the grid-template-columns property.
+• What is JSX in React?
+• Explain the purpose of state in React components.
+• How to pass data from Parent to Child component and vice-versa?
+• Explain the virtual Dom concept.
+• Differentiate between functional and class components in React.
+• Describe the lifecycle methods in a React class component.
+• How can we achieve lifecycle methods in functional component.
+• Difference between controlled and uncontrolled components.
+• What are pure components?
+• Explain the use of the useState hook in React.
+• What is the useEffect hook, and why is it used?
+• What is the difference between useCallback and useMemo hook?
+• Explain useContext hook.
+• What problem does Redux solve in a React application?
+• Explain the roles of actions, reducers, and the store in Redux.
+• Explain useReducer.
+1. What is JavaScript?
+2. Explain the difference between let, const, and var.
+3. How does hoisting work in JavaScript?
+4. Describe the concept of closures.
+5. Explain the event loop in JavaScript.
+6. What is the difference between == and ===?
+7. How do you check the type of a variable in JavaScript?
+8. What is the use of the this keyword in JavaScript?
+9. Explain the difference between function declaration and function expression.
+10. How does the setTimeout function work?
+11. What is a callback function?
+12. Explain the concept of a pure function.
+13. Describe the differences between function.call, function.apply, and function.bind.
+14. What is the purpose of the arguments object in a function?
+15. How do you create a closure in JavaScript?
+16. What is the use of the bind method?
+17. What is the difference between a shallow copy and a deep copy?
+18. How does the call stack work in JavaScript?
+19. Explain the concept of function currying.
+20. How can you avoid callback hell in JavaScript?
+21. What is prototypal inheritance?
+22. How do you create an object in JavaScript?
+23. What is the purpose of the prototype property in JavaScript?
+24. Explain the difference between Object.create and the constructor pattern.
+25. How do you add a property to an object in JavaScript?
+26. What is the hasOwnProperty method used for?
+27. How can you prevent modification of object properties in JavaScript?
+28. Describe the use of the new keyword.
+29. Explain the concept of Object Destructuring in JavaScript.
+30. What is the difference between null and undefined?
+31. What is the DOM?
+32. How do you select elements with Vanilla JavaScript?
+33. Explain event delegation in JavaScript.
+34. What is the purpose of the addEventListener method?
+35. How do you create and remove elements in the DOM?
+36. Explain the concept of event propagation.
+37. How can you prevent the default behaviour of an event?
+38. What is the purpose of the data- attribute in HTML?
+39. Describe the difference between innerHTML and textContent.
+40. How do you handle asynchronous code in JavaScript?
+implement debounce
+implement throttle
+implement currying
+implement currying with placeholders
+deep flatten I II III IV
+negative indexing in arrays
+implement in pipe method
+implement auto retry promises
+implement promise all
+implement promise.allsettled
+implement promise.any
+implement promise.race
+implement promise.finally
+implement custom javascript promises
+throttling promises by batching
+implement custom deep equal
+implement custom object.assign
+implement custom json.stringify
+implement custom json.parse
+implement custom typeof operator
+implement custom loadash_.get
+implement custom lodash_.set()
+implement custom lodash_.omit()
+implement custom lodash_.chunk()
+implement custom string tokenizer
+implement custom setTimeout
+implement custom setInterval
+implement custom clearalltimers
+implement custom event emitter
+implement custom browser history
+implement custom deep clone
+promisify the async callbacks
+1. Introduction of Multithreading:
+ - Definition of Multithreading
+ - Benefits and Challenges of Multithreading
+ - Processes vs. Threads
+ - Multithreading in Java
+2. Basics of Threads:
+ - Creating Threads
+ - Extending the Thread Class
+ - Implementing the Runnable Interface
+ - Thread Lifecycle 
+ - New 
+ - Runnable
+ - Blocked
+ - Waiting
+ - Timed Waiting
+ - Terminated
+ - Thread Priority
+ - Synchronization & Thread Safety
+ - Synchronized Methods
+ - Synchronized Blocks
+ - Volatile Keyword
+3. Inter Thread Communication and Synchronization
+ - Inter-Thread Communication
+ - wait(), notify(), and notifyAll() methods
+ - Producer-Consumer Problem
+ - Thread Joining
+4. Some Advanced Topics
+ - Thread Pools
+ - Executor Framework
+ - ThreadPoolExecutor
+ - Callable and Future
+ - Fork/Join Framework
+ - ThreadLocal in Multithreading
+5. Concurrency Utilities
+ - java.util.concurrent Package
+ - Executors and ExecutorService
+ - Callable and Future
+ - CompletableFuture
+ - Scheduled ExecutorService
+ - CountDownLatch, CyclicBarrier, Phaser, and Exchanger
+6. Concurrent Collections 
+ - ConcurrentHashMap
+ - ConcurrentLinkedQueue and ConcurrentLinkedDeque
+ - CopyOnWriteArrayList
+ - BlockingQueue Interface
+ - ArrayBlockingQueue
+ - LinkedBlockingQueue
+ - PriorityBlockingQueue
+7. Atomic Variables
+ - AtomicInteger, AtomicLong, and AtomicBoolean
+ - AtomicReference and Atomic ReferenceArray
+ - Compare-and-Swap Operations
+8. Locks and Semaphores
+ - ReentrantLock
+ - ReadWriteLock
+ - StampedLock
+ - Semaphores
+ - Lock and Condition Interface
+ 9. Best Practices and Patterns
+ - Thread Safety Best Practices
+ - Immutable Objects
+ - ThreadLocal Usage
+ - Double-Checked Locking and its Issues
+ - Concurrency Design Patterns
+ 
+11. Common Concurrency Issues and Solutions
+ - Deadlocks
+ - Starvation
+ - Livelocks
+ - Race Conditions
+ - Strategies for Avoiding Concurrency Issues
+12. Java Memory Model (we have already covered it in start, but mostly will see from different thread perceptive)
+ - Understanding Java Memory Model 
+ - Happens-Before Relationship
+ - Volatile and Final Fields
+ 13. Java 9+ Features
+ - Reactive Programming with Flow API
+ - CompletableFuture Enhancements
+ - Process API Updates
+ 14. Java 11+ Features
+ - Local-Variable Type Inference (var keyword)
+ - Enhancements in Optional class
+ - New Methods in the String class relevant to concurrency
+
+Explain how the HashMap works in Java. What are some of its key features and how does it handle collisions?
+Explain how the Java Garbage Collection mechanism works and why it's important in Java development.
+
+* Show first name, last name, and gender of patients whose gender is 'M'.
+SELECT first_name, last_name, gender
+FROM patients
+where gender = "M";
+
+*Show first name and last name of patients who does not have allergies. (null).
+SELECT first_name, last_name
+FROM patients
+where allergies is null;
+
+* Show first name of patients that start with the letter 'C'.
+SELECT first_name
+FROM patients
+where first_name like "c%";
+
+* Show first name and last name of patients that weight within the range of 100 to 120
+(inclusive).
+SELECT first_name, last_name
+FROM patients
+where weight between 100 and 120;
+
+*Update the patients table for the allergies column. If the patient's allergies is null then
+replace it with 'NKA'.
+update patients
+set allergies = "NKA"
+where allergies is null;
+
+* Show first name and last name concatinated into one column to show their full name.
+select concat(first_name, " ", last_name) as full_name
+from patients;
+
+*Show first name, last name, and the full province name of each patient.
+select first_name, last_name, province_name
+from patients
+ join province_names ON patients.province_id = province_names.province_id;
+ 
+ 8. Show how many patients have a birth_date with 2010 as the birth year.
+select count(birth_date)
+from patients
+where birth_date like "%2010%";
+
+9. Show the first_name, last_name, and height of the patient with the greatest height.
+select first_name, last_name, max(height)
+from patients
+group by first_name, last_name
+order by max(height) desc
+limit 1;
+OR if you want to use AS:
+select first_name, last_name, max(height) as height
+from patients
+group by first_name, last_name
+order by height desc
+limit 1;
+10. Show all columns for patients who have one of these patient_ids: 1,45,534,879,1000
+select *
+from patients
+where patient_id in (1,45,534,879,1000);
+11. Show the total number of admissions.
+select count(admission_date)
+from admissions;
+12. Show all the columns from admissions where the patient was admitted and discharged
+on the same day.
+select *
+from admissions
+where admission_date = discharge_date;
+13. Show the patient id and the total number of admissions for patient_id 579.
+select patient_id, count(admission_date)
+from admissions
+where patient_id = 579;
+
+14. Based on the cities that our patients live in, show unique cities that are in province_id
+'NS'?
+select distinct(city)
+from patients
+where province_id = "NS";
+15. Write a query to find the first_name, last name and birth date of patients who has height
+greater than 160 and weight greater than 70.
+select first_name, last_name, birth_date
+from patients
+where height > 160 and weight > 70;
+16. Write a query to find list of patients first_name, last_name, and allergies where allergies
+are not null and are from the city of 'Hamilton'
+select first_name, last_name, allergies
+from patients
+where allergies is not null and city = "Hamilton";
+17. Show unique birth years from patients and order them by ascending.
+select distinct(year(birth_date)) as birth_year
+from patients
+order by birth_year;
+18. Show unique first names from the patients table which only occurs once in the list.
+For example, if two or more people are named 'John' in the first_name column then don't
+include their name in the output list. If only 1 person is named 'Leo' then include them in
+the output.
+select first_name
+from patients
+group by first_name
+having count(first_name ="Leo") = 1;
+
+19. Show patient_id and first_name from patients where their first_name start and ends with
+'s' and is at least 6 characters long.
+select patient_id, first_name
+from patients
+where first_name like "s%" and first_name like "%s" and first_name like "%______%";
+OR
+select patient_id, first_name
+from patients
+where first_name like "s%s" and first_name like "%______%";
+OR
+SELECT patient_id, first_name
+FROM patients
+WHERE first_name LIKE "s____%s";
+20. Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'.
+Primary diagnosis is stored in the admissions table.
+select p.patient_id, p.first_name, p.last_name
+from patients as p
+join admissions as a
+ on p.patient_id = a.patient_id
+where diagnosis = "Dementia";
+21. Display every patient's first_name. Order the list by the length of each name and then by
+alphabetically.
+select first_name
+from patients
+order by len(first_name), first_name asc;
+22. Show the total amount of male patients and the total amount of female patients in the
+patients table. Display the two results in the same row.
+select count(gender = "M") as Male,
+ count(gender = "F") as Female
+from patients;
+23. Show first and last name, allergies from patients which have allergies to either
+'Penicillin' or 'Morphine'. Show results ordered ascending by allergies then by first_name
+then by last_name.
+select first_name ,last_name, allergies
+from patients
+where allergies = "Penicillin" or allergies = "Morphine"
+order by allergies, first_name, last_name;
+24. Show patient_id, diagnosis from admissions. Find patients admitted multiple times for
+the same diagnosis.
+select patient_id, diagnosis
+from admissions
+group by patient_id, diagnosis
+having count(patient_id = diagnosis) > 1;
+25. Show the city and the total number of patients in the city. Order from most to least
+patients and then by city name ascending.
+select city, count(*) as number_of_patients
+from patients
+group by city
+order by number_of_patients desc, city;
+26. Show first name, last name and role of every person that is either patient or doctor. The
+roles are either "Patient" or "Doctor"
+select first_name, last_name, "Patient" as role
+from patients
+union all
+select first_name, last_name, "Doctor" as role
+from doctors;
+27. Show all allergies ordered by popularity. Remove NULL values from query.
+select allergies, count(*) as popular_allergies
+from patients
+where allergies is not null
+group by allergies
+order by popular_allergies desc;
+28. Show all patient's first_name, last_name, and birth_date who were born in the 1970s
+decade. Sort the list starting from the earliest birth_date.
+select first_name, last_name, birth_date
+from patients
+where birth_date like "%197%"
+order by birth_date asc;
+OR
+select first_name, last_name, birth_date
+from patients
+where Year(birth_date) between 1970 and 1979
+order by birth_date asc;
+29. We want to display each patient's full name in a single column. Their last_name in all
+upper letters must appear first, then first_name in all lower case letters. Separate the
+last_name and first_name with a comma. Order the list by the first_name in decending
+order. EX: SMITH,jane
+select concat(upper(last_name), "," ,lower(first_name)) as full_name
+from patients
+order by first_name desc;
+30. Show the province_id(s), sum of height; where the total sum of its patient's height is
+greater than or equal to 7,000.
+Select province_id, sum(height)
+From patients
+Group By province_id
+Having sum(height) >= 7000;
+31. Show the difference between the largest weight and smallest weight for patients with
+the last name 'Maroni'
+select (max(weight) - min(weight)) as weight_diff
+from patients
+where last_name = "Maroni";
+32. Show all of the days of the month (1-31) and how many admission_dates occurred on
+that day. Sort by the day with most admissions to least admissions.
+select day(admission_date) as day_num, count(patient_id) as num_of_addmission
+from admissions
+group by day_num
+order by num_of_addmission Desc;
+33. Show all columns for patient_id 542's most recent admission_date.
+select *
+from admissions
+where patient_id = 542
+order by admission_date desc
+limit 1;
+34. Show patient_id, attending_doctor_id, and diagnosis for admissions that match one of
+the two criteria: (A). patient_id is an odd number and attending_doctor_id is either 1, 5,
+or (B). attending_doctor_id contains a 2 and the length of patient_id is 3 characters.
+select patient_id, attending_doctor_id, diagnosis
+from admissions
+where patient_id % 2 = 1 and attending_doctor_id in (1,5,19)
+or attending_doctor_id like "%2%" and len(patient_id) = 3;
+35. Show first_name, last_name, and the total number of admissions attended for each
+doctor. Every admission has been attended by a doctor.
+select first_name, last_name, count(admission_date) as admissions_attended
+from admissions a
+join doctors d
+ on a.attending_doctor_id = d.doctor_id
+group by doctor_id;
+36. For each doctor, display their id, full name, and the first and last admission date they
+attended.
+select doctor_id,
+concat("first_name", " ", "last_name") as full_name,
+min(admission_date) as first_date_attended,
+ max(admission_date) as last_date_attended
+from admissions a
+join doctors d
+ on a.attending_doctor_id = d.doctor_id
+group by doctor_id;
+37. Display the total amount of patients for each province. Order by descending.
+select pr.province_name, count(p.patient_id) as total_patients
+from patients as p
+join province_names as pr
+ on p.province_id = pr.province_id
+group by pr.province_name
+order by total_patients desc;
+38. For every admission, display the patient's full name, their admission diagnosis, and their
+doctor's full name who diagnosed their problem.
+select
+concat(p.first_name, " ", p.last_name) as patient_full_name,
+a.diagnosis,
+concat(d.first_name, " ", d.last_name) as doc_full_name
+from patients as p
+join admissions as a
+ on p.patient_id = a.patient_id
+ join doctors as d
+ on d.doctor_id = a.attending_doctor_id;
+ 39. display the first name, last name and number of duplicate patients based on their first
+name and last name.
+select first_name, last_name, count(*) as num_of_duplicates
+from patients
+group by first_name, last_name
+having count(*) > 1;
+40. Display patient's full name, height in the units feet rounded to 1 decimal, weight in the
+unit pounds rounded to 0 decimals, birth_date, gender non abbreviated. Convert CM to
+feet by dividing by 30.48. Convert KG to pounds by multiplying by 2.205.
+select
+concat(first_name, " ", last_name) as patient_full_name,
+round((height/30.48), 1) as height,
+round((weight*2.205), 0) as weight,
+birth_date,
+case
+when gender = "M" then "Male"
+ when gender = "F" then "Female"
+end as gender
+from patients;
+41. Show patient_id, first_name, last_name from patients who do not have any records in
+the admissions table. (Their patient_id does not exist in any admissions.patient_id
+rows.)
+select p.patient_id, p.first_name, p.last_name
+from patients as p
+Left join admissions as a
+ on p.patient_id = a.patient_id
+where a.patient_id is null;
+
+42. Show all of the patients grouped into weight groups. Show the total amount of patients
+in each weight group. Order the list by the weight group decending. For example, if they
+weight 100 to 109 they are placed in the 100 weight group, 110-119 = 110 weight group,
+etc.
+select (weight/10) * 10 as weight_group, count(*) as no_of_patients_in_grp
+from patients
+group by weight_group
+order by weight_group desc;
+
+43. Show patient_id, weight, height, isObese from the patients table. Display isObese as a
+boolean 0 or 1. Obese is defined as weight(kg)/(height(m)2) >= 30. Weight is in units kg.
+Height is in units cm.
+// Comment: To convert height (CM) to height (M): divide the height by 100.00
+(height/100.00) //
+select patient_id, weight, height,
+Case
+when weight/power(height/100.00,2) > 30 then 1
+ else 0
+End as isObese
+from patients;
+44. Show patient_id, first_name, last_name, and attending doctor's specialty. Show only the
+patients who has a diagnosis as 'Epilepsy' and the doctor's first name is 'Lisa' Check
+patients, admissions, and doctors tables for required information.
+select p.patient_id, p.first_name, p.last_name, d.specialty
+from patients as p
+join admissions as a
+ on p.patient_id = a.patient_id
+ join doctors as d
+ on d.doctor_id = a.attending_doctor_id
+where a.diagnosis = "Epilepsy" and d.first_name = "Lisa";
+. All patients who have gone through admissions, can see their medical documents on
+our site. Those patients are given a temporary password after their first admission. Show
+the patient_id and temp_password. The password must be the following, in order: (A).
+patient_id (B). the numerical length of patient's last_name (C). year of patient's
+birth_date.
+select distinct(p.patient_id),
+concat(p.patient_id,len(p.last_name),year(p.birth_date)) as temp_password
+from patients as p
+join admissions as a
+ on p.patient_id = a.patient_id;
+ 46. Each admission costs $50 for patients without insurance, and $10 for patients with
+insurance. All patients with an even patient_id have insurance. Give each patient a 'Yes'
+if they have insurance, and a 'No' if they don't have insurance. Add up the dmission_total
+cost for each has_insurance group.
+select
+case
+when patient_id % 2 = 0 then "Yes"
+ else "No"
+end as has_insurance,
+sum(case
+when patient_id % 2 = 0 then 10
+ else 50
+end) as cost_as_per_insurance_availability
+from admissions
+group by has_insurance;
+47. Show the provinces that has more patients identified as 'M' than 'F'. Must only show full
+province_name.
+select pn.province_name
+from patients as p
+join province_names as pn
+ on p.province_id = pn.province_id
+group by province_name
+having sum(case
+ when p.gender = "M" then 1 else 0
+ end) >
+ sum(case
+ when p.gender = "F" then 1 else 0
+ end);
+ 48. We are looking for a specific patient. Pull all columns for the patient who matches the following criteria:- First_name contains an 'r' after the first two letters.- Identifies their gender as 'F'- Born in February, May, or December- Their weight would be between 60kg and 80kg- Their patient_id is an odd number- They are from the city 'Kingston'.
+	select *
+	from patients
+	where
+	first_name like "__r%" and
+	gender = "F" and
+	month(birth_date) in (2, 5, 12) and
+	weight between 60 and 80 and
+	patient_id % 2 = 1 and
+	city = "Kingston";
+49. Show the percent of patients that have 'M' as their gender. Round the answer to the nearest hundreth number and in percent form.
+	select
+	concat(round((sum(case when gender = "M" then 1 else 0 end) *100.00 / count(*)), 2),
+	"%") as male_percentage
+from patients;
+50. For each day display the total amount of admissions on that day. Display the amount changed from the previous date.
+	SELECT admission_date,
+	COUNT(admission_date) AS admission_count,
+	COUNT(admission_date) - LAG(COUNT(admission_date)) OVER (ORDER BY
+	admission_date) AS admission_count_change
+	FROM admissions
+	GROUP BY admission_date;
+51. Sort the province names in ascending order in such a way that the province 'Ontario' is always on top.
+	SELECT province_name
+	FROM province_names
+	ORDER BY (province_name = "Ontario") desc, province_name asc;
+52. We need a breakdown for the total amount of admissions each doctor has started each year. Show the doctor_id, doctor_full_name, specialty, year, total_admissions for that year.
+	select d.doctor_id,
+	concat(d.first_name, " ", d.last_name) as Doc_full_name,
+	d.specialty,
+	year(a.admission_date) as the_year,
+	count(*) as total_admissions_started
+	from admissions as a
+	join doctors as d
+	on a.attending_doctor_id = d.doctor_id
+	group by d.doctor_id, the_year; 
+What is Vue.js?
+Explain the Vue instance lifecycle hooks.
+What are components in Vue.js?
+How does two-way data binding work in Vue.js?
+What are directives in Vue.js?
+Explain how Vue.js handles events.
+What is Virtual DOM in Vue.js?
+How do you create a new Vue instance?
+What are props in Vue.js?
+Explain how you can share data between components in Vue.js.
+What is Vue Router?
+How do you handle forms in Vue.js?
+What are mixins in Vue.js?
+Describe how you would implement lazy loading of routes in a Vue application.
+What is computed property in Vue.js?
+Explain what watchers are in Vue.js.
+What is $nextTick in Vue.js?
+How does error handling work in Vue.js?
+Explain how filters work in Vue.js.
+What are some common performance optimization techniques in Vue.js?
+What is Vuex, and how does it help in managing state in Vue.js applications?
+Explain the concept of Vue slots. How are they used in components?
+How do you use dynamic components in Vue.js?
+What are transitions in Vue.js, and how do you apply them?
+Explain the purpose of scoped styles in Vue.js.
+How does Vue.js handle asynchronous updates and batching?
+What is a render function in Vue.js, and when would you use it?
+Explain the purpose of async and await in Vue.js components.
+What are mixins, and how do they differ from composition API in Vue.js?
+What is a ref in Vue 3, and how does it differ from data?
+How do you handle global error boundaries in Vue.js?
+What is the provide and inject API in Vue.js, and how is it used?
+How do you set up route guards with Vue Router?
+Explain how v-model works with custom components.
+What are composables, and how do you create one in Vue 3?
+How do you implement server-side rendering (SSR) with Vue.js?
+Explain how to test Vue.js components using Jest and Vue Test Utils.
+What is the emit function in Vue.js, and how is it used in child components?
+How does Vue handle memory leaks, and what steps can you take to prevent them?
+What is the teleport component in Vue 3, and how is it used?
+What is hoisting?
+What are closures?
+Difference between var, let, and const.
+Explain event delegation.
+Difference between == and ===.
+What are promises?
+What is async/await?
+What is prototype inheritance?
+Explain the event loop.
+How does JavaScript handle asynchronous operations?
+What is the difference between map(), filter(), and forEach()?
+What is this in JavaScript?
+What are JavaScript modules?
+Explain debounce and throttle.
+What are arrow functions?
+Difference between call(), apply(), and bind().
+What are higher-order functions?
+Explain immutability in JavaScript.
+Difference between setTimeout and setInterval.
+How do you handle errors?
+Difference between deep copy and shallow copy.
+What is the typeof operator?
+What are template literals?
+What are IIFEs (Immediately Invoked Function Expressions)?
+Explain destructuring assignment.
+What is the spread/rest operator?
+How does the new keyword work?
+Synchronous vs. asynchronous code.
+Difference between localStorage, sessionStorage, and cookies.
+What is the Symbol type?
+What are generators?
+Function declaration vs. function expression.
+How does JavaScript handle scope and scope chains?
+What are default parameters?
+Difference between null and undefined.
+What are WeakMap and WeakSet?
+Purpose of Object.freeze().
+Use of Object.keys(), Object.values(), and Object.entries().
+What is a polyfill?
+How do Promise.all() and Promise.race() work?
+What is memoization?
+Explain the difference between mutable and immutable objects.
+How does Array.reduce() work?
+What is currying?
+What is the purpose of the try...catch block?
+Explain the difference between for...in and for...of.
+How does garbage collection work in JavaScript?
+What is the difference between Object.create() and class inheritance?
+What is a callback function?
+How does Promise.any() work?
+What are dynamic imports in JavaScript?
+How does the fetch API work?
+What are microtasks and macrotasks?
+How does Array.splice() differ from Array.slice()?
+What are tagged templates?
+How do you detect if an object is an array?
+What is event bubbling and capturing?
+What is the difference between ES5 and ES6?
+Explain Function.prototype methods.
+How does JSON.stringify() and JSON.parse() work?
+Program to find longest word in a given sentence ?
+How to check whether a string is palindrome or not ?
+Write a program to remove duplicates from an array ?
+Program to find Reverse of a string without using built-in method ?
+Find the max count of consecutive 1’s in an array ?
+Find the factorial of given number ?
+Given 2 arrays that are sorted [0,3,4,31] and [4,6,30]. Merge them and sort [0,3,4,4,6,30,31] ?
+Create a function which will accepts two arrays arr1 and arr2. The function should return true if every value in arr1 has its corresponding value squared in array2. The frequency of values must be same.
+Given two strings. Find if one string can be formed by rearranging the letters of other string.
+Write logic to get unique objects from below array ?
+	I/P: [{name: "sai"},{name:"Nang"},{name: "sai"},{name:"Nang"},{name: "111111"}];
+	O/P: [{name: "sai"},{name:"Nang"}{name: "111111"}
+Write a JavaScript program to find the maximum number in an array.
+Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers.
+Write a JavaScript function to check if a given number is prime.
+Write a JavaScript program to find the largest element in a nested array.
+	[[3, 4, 58], [709, 8, 9, [10, 11]], [111, 2]]
+Write a JavaScript function that returns the Fibonacci sequence up to a given number of terms.
+Given a string, write a javascript function to count the occurrences of each character in the string.
+Write a javascript function that sorts an array of numbers in ascending order.
+Write a javascript function that sorts an array of numbers in descending order.
+Write a javascript function that reverses the order of words in a sentence without using the built-in reverse() method.
+Implement a javascript function that flattens a nested array into a single-dimensional array.
+Write a function which converts string input into an object
+	("a.b.c", "someValue");
+	{a: {b: {c: "someValue"}}}
+what is static initializer block?
+where does static block stored in java?
+externalization in java
+what is reentrant lock
+can we synchronize process not threads
+what is functional interface and how it is related to lambda?
+difference between jsp include action and directives
+what are the advantages of spring boot
+how security is provided in spring boot
+how to secure rest apis in  spring boot
+difference between @controller and @restcontroller
+
+console.log("Hi!");
+
+setTimeout(function timeout() {
+    console.log("Click the button!");
+}, 5000);
+
+console.log("Welcome to loupe.");
+
+console.log("yes");
+
+var p = new Promise((resolve, reject) => resolve(3));
+
+p.then((resolve) => console.log(resolve));
+
+
+/* 
+arr[] = {1, 4, 20, 3, 10, 5}, sum = 33
+
+Output: Sum found between indexes 2 and 4
+Sum of elements between indices
+2 and 4 is 20 + 3 + 10 = 33
+
+Input: arr[] = {1, 4, 0, 0, 3, 10, 5}, sum = 7
+Output: Sum found between indexes 1 and 4
+Sum of elements between indices
+1 and 4 is 4 + 0 + 0 + 3 = 7
+
+Input: arr[] = {1, 4}, sum = 0
+Output: No subarray found 
+*/
+
+
+/* function findPairForIndexes(array, sum) {
+  
+  for(let i = 0; i < array.length; i++) {
+    let sum2 = array[i]
+    for (let j = i+1; j<array.length; j++) {
+       sum2 += array[j]
+       if(sum2 === sum) {
+           return {i, j}
+       }
+    }
+  }
+  return []
+}
+
+const arr = [1, 4, 20, 3, 10, 5]
+const arr2 = [1,10,10,3,10, 4, 20, 3, 10, 5]
+const arr3 = [1, 4, 0, 0, 3, 10, 5]
+const arr4 = [1,0,0,4]
+let sum = 0
+console.log(findPairForIndexes(arr4, sum)) */
+
+/* function f() {
+  let x = 3
+  returns function y (){
+    console.log(x)
+  }
+} */
+
+
+setTimeout(()=>{
+	console.log(i,j)
+}, 1000);
+var i=100
+let j=200
+
+***************************************
+
+console.log({} === {})
+console.log({} == {})
+console.log([] == [])\
+
+
+
+
+const key = "msg";
+const testCase = {
+msg:"Test Case",
+[key] : "Hey, this is me"
+}
+console.log(testCase.msg)
+
+
+protectetd route admin
+
+only if authoriation is corect then only i will access
+
+
+function selectAll(){
+	
+	
+	check = () => {
+	
+	}
+	
+	render(){
+		return <h3><input type="checkbox" name="check" value="first check">
+		<input type="checkbox" name="check" value="second check">
+		<input type="checkbox" name="check" value="third check">
+		<input type="checkbox" name="check" value="fourth check">
+		</h3>
+	}
+}
+
+
+********************************************************
+
+import {createStore} from 'redux';
+
+const initialState = {counter: 0}
+
+function counterReducer(state = initialState, action) {
+	switch(action.type){
+		case 'INCREMENT': 
+			return { ...state , counter : state.counter + 1}
+		case 'DECREMENT': 
+			return { ...state , counter : state.counter - 1}
+		default:
+				return state
+	}
+}
+
+const store = createStore(counterReducer)
+
+export default store
+
+
+
+useSelector((state) = > state.counter) // current value of counter
+useDispatch()
+
+**********************************************************
+
+
+1. What is the Animal constructor function doing?
+
+	Animal contructor is creating one variable named 'name' and initialize this variable
+
+2. What is the eat method doing?
+	
+	We are creating a prototype method eat to Animal object
+	
+3. What is the Dog constructor function doing?
+
+	
+	
+4. What is Object.create(Animal.prototype) doing?
+	
+	copying the Animal prototype to Dog prototype. This will change the contructor of Dog object so make it back to Dog we are using 'Dog.prototype.constructor = Dog'
+	
+	
+5. What is the bark method doing?
+	
+	We are creating a prototype method bark to Dog object
+	
+**********************************************************
+
+
+console.log('script start');
+
+let myPromise = new Promise((resolve)=>{resolve(123)})
+
+setTimeout(()=>{
+console.log('timeout');
+})
+
+fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+  
+myPromise.then((res)=>console.log(res))
+
+console.log('script end');
+
+script start
+fetch o/p
+123
+script end
+timeout
+
+
+
+
+/* // Input
+const endorsements = [
+    {name: 'Bob', skill: 'JS'},
+    {name: 'David', skill: 'JS'},
+    {name: 'Bob', skill: 'HTML'},
+    {name: 'James', skill: 'HTML'},
+    {name: 'James', skill: 'JS'},
+    {name: 'James', skill: 'CSS'},
+];
+
+const skill = []
+const skillset = []
+
+endorsements.reduce()
+
+endorsements.forEach(s=> {
+  if(skill.includes(s.skill)){
+    skillset.indexOf(x => x.skill === )
+    })
+  }else {
+    skill.push(s.skill)
+    skillset.push({skill: s.skill, people: [s.name], count: 1})
+  }
+})
+
+if(x.skill === s.skill){
+        x.people.push(s.name);
+        x.count = x.count + 1
+      }
+console.log(skillset)
+
+// Output
+const skillset = [
+    {skill: 'JS', people:['Bob', 'David', 'James'], count:3},
+    {skill: 'HTML', people:['Bob', 'James'], count:2},
+    {skill: 'CSS', people:['James'], count:1},
+];
+ */
+
+
+
+console.log('script start');
+
+let myPromise = new Promise((resolve)=>{resolve(123)})
+
+setTimeout(()=>{
+console.log('timeout');
+})
+
+fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+  
+myPromise.then((res)=>console.log(res))
+
+console.log('script end');
+
+
+********************************************************************
+
+import fetch from 'node-fetch';
+
+console.log('script start');
+
+let myPromise = new Promise((resolve) => {
+  resolve(123);
+});
+
+setTimeout(() => {
+  console.log('timeout');
+});
+
+fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+
+myPromise.then((res) => console.log(res));
+
+console.log('script end');
+
+
+********************************************************************
+
+// run `node index.js` in the terminal
+
+console.log(`Hello Node.js v${process.versions.node}!`);
+
+const key = 'msg';
+const testCase = {
+  msg: 'Test case',
+  [key]: 'Hello',
+};
+
+console.log(key);
+console.log(testCase);
+
+********************************************************************
+
+
+const Memo = () => {
+	
+	const [text, setText] = useState("")
+	const [A, setA] = useState(0)
+	const [B, setB] = useState(0)
+	
+	co
+	
+
+	return (
+		<span>{text}</span>
+		<span>{A}</span>
+		<span>{B}</span>
+		<span>{sum}</span>
+	)
+	
+}
+
+
+const x = {a: 1, b: 2, c: { d: 2}}
+const {a, b, c} = x
+
+********************************************************************
+
+function ge(one, two, three){
+    console.log(one)
+    console.log(two)
+    console.log(three)
+}
+
+const person = 'lyd'
+const age = 21
+ge`${person} is ${age} years old`;
+
+
+const person = {name: 'lydia'}
+Object.defineProperty(person, 'age', {value: 21})
+Object.keys(person)
+console.log(person)
+
+
+var a = '20'
+var b = a = 30
+console.log(a+b)
+
+
+function x() {
+    console.log(name)
+    console.log(age)
+    var name = 'lydia'
+    let age = 21
+}
+x()
+
+*******************************************************************
+
+The cost of a stock every hour in a day is given in an array, find the maximum profit that you can make by buying and later selling in that day.
+
+ 
+
+ 
+
+For example, if the price of stock varies every hour in a day as [19, 21, 12, 13, 20, 6, 4, 8, 1], the maximum profit can be earned by buying on 3rd hour(12) and selling on 5th hour(20)
+
+Output : 20 - 12 = 8
+
+const pair = []
+
+for(let i = 0; i< arr.length; i++){
+	for (let x = 1; i < arr.length; x++){
+		if(arr[i] - arr[x] < 0){
+			pair.push([arr[i], arr[x]])
+		}
+	}
+}
+
+
+
+
+Table: Student
+
+ 
+
+Columns:
+ID Number
+FirstName varchar(50)
+LastName varchar(50)
+Gender varchar(50)
+Subject varchar(50)
+Score Number
+Age Number
+
+ 
+
+What will be the query to get:
+Fullname of male students having score greater than 90 in Maths?
+
+
+
+select concat(FirstName, LastName) from Student where gender='M' and Subject='Maths' and score > 90
+
+
+******************************************************************
+
+function xyz (){
+let t;
+let y;
+	
+	return abc(){
+		console(t)
+		console.log(y)
+	}
+}
+
+
+var u = xyz()
+u()
+
+async function asyn(){
+	var dat = await fetch('http://')
+}
+
+asyn()
+console.log('after')
+
+const arr  = []
+
+arr.map()
+
+
+function sort(arr){
+cons sorted=[]
+	for(let i =0; i<arr.lenght; i++){
+		for(let x=1; x<arr.lenght; x++){
+			if(arr[i] < arr[x]){
+				sorted.push(arr[i])
+			} else{
+				sorted.push(arr[x])
+			}
+		}
+	}
+}
+
+console.log(sort([-5, -4, 6, 2, 3, -7, -8]));
+
+******************************************************************
+
+employees table with columns:
+
+employee_id (unique identifier)
+first_name
+last_name
+job_title
+department_id (references a departments table)
+
+
+departments table with columns:
+
+department_id (unique identifier)
+department_name
+
+
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "()[]{}"
+Output: true
+
+Example 3:
+Input: s = "(]"
+Output: false
+
+
+// Write a loader that works as per the click and counter.
+// Loader - This will go from 0 to 100 in 3 sec
+// Buttons - start | pause |reset
+// Counter - on click of start counter increase by 1 and loaders tart
+
+
+
+Input = (){}[]
+Input =  (   [  }  ]  )  } 
+
+} : 2
+
+Input =  (   [  }  ]  )  } 
+
+Output : 
+	} : 2
+
+
+Function isStringValid(str){
+	Const openBrack = []
+	Let count = 0;
+	Const close = [‘}’, ‘)’, ‘]’]
+	Const open = [‘(’, ‘{’, ‘[’]
+
+	for(let i = 0; i< str.length; i++) {
+	if(      open.includes(str[i]) ){
+		openBracket.push(str[i])
+} else {
+	if(openBracket.length > 0){
+		let x = openBracket[openBracket.length - 1]
+		if((str[i] === ‘)’ && x === ‘(’ ) || (str[i] === ‘}’ && x === ‘{’) || (str[i] === ‘]’ && str[i] === ‘[’)){
+			openBracket.pop()
+
+		}  else {
+					Count = count +1
+}
+} else {
+Count = count +1
+}
+
+//else {
+	//Return false;
+//}
+}
+}
+//return openBracket.length == 0
+
+}
+
+console.log(isStringValid(input))
+
+******************************************************************
+
+ const arr = [1,2,3]
+ 
+ map, filter, reduce,
+ 
+ arr.prototype 
+ 
+ 
+ arr.map()
+ 
+ arr.map((a) => return a * 2)
+ 
+ function mapPolyFill(arr) {
+	const updatedMap = []
+	for (let i in arr) {
+		updatedMap.push(i * 2)
+	}
+	return updatedMap;
+ }
+ 
+ 
+ arr.mapPolyFill(x)
+ 
+ 
+ function mapPolyFill(func, arr) {
+	for (let i in arr) {
+		func(i)
+	}
+ }
+ 
+ const obj = {name: "Sourav", print: () => { console.log(this.name) }}
+ obj.print()
+ 
+ const arr = [1,2,4]
+ 
+ arr.filter((val) => {
+	if(val > 2) {
+		return "hello"
+	}
+ })
+ ["hello"]
+
+***********************************************
+
+const arr = [1,2,3,1,2,5,6,7]
+call()
+function getNumberExistOneTime(array) {
+	const obj = {}
+  const a = []
+	function x () {
+   console.log(this)
+  }
+  console.log(this)
+  x()
+  for(let i of array) {
+  	if(obj[i]) {
+    	
+    } else {
+    	obj[i] = 1
+    }
+  }
+  
+}
+
+//const oj = new getNumberExistOneTime(arr)
+
+console.log(getNumberExistOneTime(arr))
+
+class Person {
+	 firstName;
+  let secondName;
+  let fullName;
+}
+
+
+x, y, z
+
+
+************************************************************
+
+Q. What will be the height of the class foo?
+
+.foo{
+  border:5px solid #000;
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+Ans - height - 100px
+
+Q. Write the HTML code
+	-----------------------------------------------
+   		Gender: o Male  o Female
+        		Submit  clear
+-----------------------------------------------
+
+<div class="form">
+<form>
+	<div class="gender-radio">
+  	<span>Gender</span>
+    <input type="radio" value="Male"/>
+    <input type="radio" value="Female"/>
+  </div>
+  <div class="form-button">
+  	<button>Submit</button>
+    <button>Clear</button>
+  </div>
+</form>
+</div>
+
+Q. Write a function that can replace the text with "Hide" and "Show".
+
+<button>Show</button>
+
+<button onclick='myfunction()' id="button">Show</button>
+
+function myFunction() {
+	var buttonElem = document.getElementById("button");
+  button.innerText = (button.Elem.innerText == "Hide" ? "Show" : "Hide")
+}
+
+Q. Add the class "foo" in the body tag with JavaScript.
+
+document.getElementByTagName().classList.add("foo")
+
+Q. How do you delete or add array values in between array values? ("Lemon", "Kiwi" add after apple)
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+Q. How do you empty a JavaScript array?
+
+fruits.length = 0
+
+Q. What do you understand by accessibility?
+
+Q. What is the mobile-first approach?
+
+@media (max-width : 400px) {
+
+}
+
+Q. What is async and defer in javascript?
+Q. Difference between double equals operator and equals method.
+Q. What is string constant pool
+Q  What is serialization? Transient keyword usecase, Static fields are serializable or not.
+Q. What is singleton class?
+Q. Internal Implementation of hashmap
+Q. @ExceptionHandler, @ControllerAdvice, Global exception handler
+Q. Lifecycle of spring bean
+Q. Default scope of spring bean.
+Q. Different types of Functional Interface.
+Q. Difference between authentication and authorization
+Q. Difference between collection and collections
+Q. Changes came in java 8.
+Q. Why should we use concurrent hash map?
+Q. What is Method references.
+Q. ApplicationRunner vs CommandLine
+Q. How do you add interceptor in springboot application.
+Q. Different types of conditional statement.
+Q. Stored procedure
+Q. view in databases
+Q. indexes in databases
+Q. Is local variable thread safe
+Q. Is static variables thread safe
+Q. Non static methods accessing non instance variables are not thread safe? Explain
+Q. wait and notify method
+Q. Executor service working in terms of when we can see the result.
+Q. Talk about collison in hashmap
+Q. LinkedHashMap
+Q. @Component, @Service, @Controller
+Q. @Configuration and @Bean
+Q. Cloudwatch, EC2 instances, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

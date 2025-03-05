@@ -1,0 +1,264 @@
+What is JavaScript?
+What are the data types supported by JavaScript?
+What is the difference between `let`, `const`, and `var`?
+Explain how `==` and `===` differ.
+What is a closure?
+What is hoisting?
+Explain the concept of "this" in JavaScript.
+What are JavaScript prototypes?
+What is the difference between `null` and `undefined`?
+How does JavaScript handle asynchronous operations?
+What is a promise?
+What are async/await functions?
+Explain event delegation in JavaScript.
+What are JavaScript modules?
+How can you prevent a function from being called multiple times?
+What is the event loop?
+What is the difference between `apply()` and `call()` methods?
+What is `bind()` method used for?
+What is a JavaScript event loop?
+Explain the concept of "event bubbling" and "event capturing".
+What is the difference between `deep copy` and `shallow copy`?
+What are generator functions?
+What is the `new` keyword used for?
+How do JavaScript’s `setTimeout` and `setInterval` work?
+What is a `WeakMap` and how is it different from a `Map`?
+What is a `Set` in JavaScript?
+What is `Object.create()` used for?
+How does JavaScript’s garbage collection work?
+What are "decorators" in JavaScript?
+Explain the difference between `prototype` and `__proto__`.
+What is the purpose of the doctype declaration?
+Explain the difference between <div> and <span>.
+What is the box model in CSS?
+What are pseudo elements and classes.
+Difference between "visibility: hidden" and "display: none".
+Explain z-index.
+Explain the concept of hoisting in JavaScript.
+What is the difference between let, const, and var?
+Difference between == and ===?
+Explain Event loop.
+What is a closure in JavaScript?
+Explain the differences between arrow functions and regular functions.
+Explain currying.
+Explain Promises.
+What is the importance of media queries in responsive design?
+Describe the difference between em and rem units in CSS.
+What is the flexbox model, and how does it work?
+Explain the purpose of justify-content and align-items in flexbox.
+How does CSS Grid differ from Flexbox?
+Explain the use of the grid-template-columns property.
+What is JSX in React?
+Explain the purpose of state in React components.
+How to pass data from Parent to Child component and vice-versa?
+Explain the virtual Dom concept.
+Differentiate between functional and class components in React.
+Describe the lifecycle methods in a React class component.
+How can we achieve lifecycle methods in functional component.
+Difference between controlled and uncontrolled components.
+What are pure components?
+Explain the use of the useState hook in React.
+What is the useEffect hook, and why is it used?
+What is the difference between useCallback and useMemo hook?
+Explain useContext hook.
+What problem does Redux solve in a React application?
+Explain the roles of actions, reducers, and the store in Redux.
+Explain useReducer.
+What is JavaScript?
+Explain the difference between let, const, and var.
+How does hoisting work in JavaScript?
+Describe the concept of closures.
+Explain the event loop in JavaScript.
+What is the difference between == and ===?
+How do you check the type of a variable in JavaScript?
+What is the use of the this keyword in JavaScript?
+Explain the difference between function declaration and function expression.
+How does the setTimeout function work?
+What is a callback function?
+Explain the concept of a pure function.
+Describe the differences between function.call, function.apply, and function.bind.
+What is the purpose of the arguments object in a function?
+How do you create a closure in JavaScript?
+What is the use of the bind method?
+What is the difference between a shallow copy and a deep copy?
+How does the call stack work in JavaScript?
+Explain the concept of function currying.
+How can you avoid callback hell in JavaScript?
+What is prototypal inheritance?
+How do you create an object in JavaScript?
+What is the purpose of the prototype property in JavaScript?
+Explain the difference between Object.create and the constructor pattern.
+How do you add a property to an object in JavaScript?
+What is the hasOwnProperty method used for?
+How can you prevent modification of object properties in JavaScript?
+Describe the use of the new keyword.
+Explain the concept of Object Destructuring in JavaScript.
+What is the difference between null and undefined?
+What is the DOM?
+How do you select elements with Vanilla JavaScript?
+Explain event delegation in JavaScript.
+What is the purpose of the addEventListener method?
+How do you create and remove elements in the DOM?
+Explain the concept of event propagation.
+How can you prevent the default behaviour of an event?
+What is the purpose of the data- attribute in HTML?
+Describe the difference between innerHTML and textContent.
+How do you handle asynchronous code in JavaScript?
+implement debounce
+implement throttle
+implement currying
+implement currying with placeholders
+deep flatten I II III IV
+negative indexing in arrays
+implement in pipe method
+implement auto retry promises
+implement promise all
+implement promise.allsettled
+implement promise.any
+implement promise.race
+implement promise.finally
+implement custom javascript promises
+throttling promises by batching
+implement custom deep equal
+implement custom object.assign
+implement custom json.stringify
+implement custom json.parse
+implement custom typeof operator
+implement custom loadash_.get
+implement custom lodash_.set()
+implement custom lodash_.omit()
+implement custom lodash_.chunk()
+implement custom string tokenizer
+implement custom setTimeout
+implement custom setInterval
+implement custom clearalltimers
+implement custom event emitter
+implement custom browser history
+implement custom deep clone
+promisify the async callbacks
+What is Vue.js?
+Explain the Vue instance lifecycle hooks.
+What are components in Vue.js?
+How does two-way data binding work in Vue.js?
+What are directives in Vue.js?
+Explain how Vue.js handles events.
+What is Virtual DOM in Vue.js?
+How do you create a new Vue instance?
+What are props in Vue.js?
+Explain how you can share data between components in Vue.js.
+What is Vue Router?
+How do you handle forms in Vue.js?
+What are mixins in Vue.js?
+Describe how you would implement lazy loading of routes in a Vue application.
+What is computed property in Vue.js?
+Explain what watchers are in Vue.js.
+What is $nextTick in Vue.js?
+How does error handling work in Vue.js?
+Explain how filters work in Vue.js.
+What are some common performance optimization techniques in Vue.js?
+What is Vuex, and how does it help in managing state in Vue.js applications?
+Explain the concept of Vue slots. How are they used in components?
+How do you use dynamic components in Vue.js?
+What are transitions in Vue.js, and how do you apply them?
+Explain the purpose of scoped styles in Vue.js.
+How does Vue.js handle asynchronous updates and batching?
+What is a render function in Vue.js, and when would you use it?
+Explain the purpose of async and await in Vue.js components.
+What are mixins, and how do they differ from composition API in Vue.js?
+What is a ref in Vue 3, and how does it differ from data?
+How do you handle global error boundaries in Vue.js?
+What is the provide and inject API in Vue.js, and how is it used?
+How do you set up route guards with Vue Router?
+Explain how v-model works with custom components.
+What are composables, and how do you create one in Vue 3?
+How do you implement server-side rendering (SSR) with Vue.js?
+Explain how to test Vue.js components using Jest and Vue Test Utils.
+What is the emit function in Vue.js, and how is it used in child components?
+How does Vue handle memory leaks, and what steps can you take to prevent them?
+What is the teleport component in Vue 3, and how is it used?
+What is hoisting?
+What are closures?
+Difference between var, let, and const.
+Explain event delegation.
+Difference between == and ===.
+What are promises?
+What is async/await?
+What is prototype inheritance?
+Explain the event loop.
+How does JavaScript handle asynchronous operations?
+What is the difference between map(), filter(), and forEach()?
+What is this in JavaScript?
+What are JavaScript modules?
+Explain debounce and throttle.
+What are arrow functions?
+Difference between call(), apply(), and bind().
+What are higher-order functions?
+Explain immutability in JavaScript.
+Difference between setTimeout and setInterval.
+How do you handle errors?
+Difference between deep copy and shallow copy.
+What is the typeof operator?
+What are template literals?
+What are IIFEs (Immediately Invoked Function Expressions)?
+Explain destructuring assignment.
+What is the spread/rest operator?
+How does the new keyword work?
+Synchronous vs. asynchronous code.
+Difference between localStorage, sessionStorage, and cookies.
+What is the Symbol type?
+What are generators?
+Function declaration vs. function expression.
+How does JavaScript handle scope and scope chains?
+What are default parameters?
+Difference between null and undefined.
+What are WeakMap and WeakSet?
+Purpose of Object.freeze().
+Use of Object.keys(), Object.values(), and Object.entries().
+What is a polyfill?
+How do Promise.all() and Promise.race() work?
+What is memoization?
+Explain the difference between mutable and immutable objects.
+How does Array.reduce() work?
+What is currying?
+What is the purpose of the try...catch block?
+Explain the difference between for...in and for...of.
+How does garbage collection work in JavaScript?
+What is the difference between Object.create() and class inheritance?
+What is a callback function?
+How does Promise.any() work?
+What are dynamic imports in JavaScript?
+How does the fetch API work?
+What are microtasks and macrotasks?
+How does Array.splice() differ from Array.slice()?
+What are tagged templates?
+How do you detect if an object is an array?
+What is event bubbling and capturing?
+What is the difference between ES5 and ES6?
+Explain Function.prototype methods.
+How does JSON.stringify() and JSON.parse() work?
+Program to find longest word in a given sentence ?
+How to check whether a string is palindrome or not ?
+Write a program to remove duplicates from an array ?
+Program to find Reverse of a string without using built-in method ?
+Find the max count of consecutive 1’s in an array ?
+Find the factorial of given number ?
+Given 2 arrays that are sorted [0,3,4,31] and [4,6,30]. Merge them and sort [0,3,4,4,6,30,31] ?
+Create a function which will accepts two arrays arr1 and arr2. The function should return true if every value in arr1 has its corresponding value squared in array2. The frequency of values must be same.
+Given two strings. Find if one string can be formed by rearranging the letters of other string.
+Write logic to get unique objects from below array ?
+	I/P: [{name: "sai"},{name:"Nang"},{name: "sai"},{name:"Nang"},{name: "111111"}];
+	O/P: [{name: "sai"},{name:"Nang"}{name: "111111"}
+Write a JavaScript program to find the maximum number in an array.
+Write a JavaScript function that takes an array of numbers and returns a new array with only the even numbers.
+Write a JavaScript function to check if a given number is prime.
+Write a JavaScript program to find the largest element in a nested array.
+	[[3, 4, 58], [709, 8, 9, [10, 11]], [111, 2]]
+Write a JavaScript function that returns the Fibonacci sequence up to a given number of terms.
+Given a string, write a javascript function to count the occurrences of each character in the string.
+Write a javascript function that sorts an array of numbers in ascending order.
+Write a javascript function that sorts an array of numbers in descending order.
+Write a javascript function that reverses the order of words in a sentence without using the built-in reverse() method.
+Implement a javascript function that flattens a nested array into a single-dimensional array.
+Write a function which converts string input into an object
+	("a.b.c", "someValue");
+	{a: {b: {c: "someValue"}}}
