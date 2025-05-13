@@ -25,14 +25,13 @@ git commit -m "<comments>"
 
 to push the changes from one branch to another:
 
-one_branch=the branch from where code will be moved
-another_branch=the branch to where code will be moved
+	one_branch=the branch from where code will be moved
+	another_branch=the branch to where code will be moved
 
-first switch to the branch where you want your code by the command: 
-	git checkout <another_branch>
-
-then:
-	git merge <one_branch>
+	first switch to the branch where you want your code by the command: 
+		git checkout <another_branch>
+	then:
+		git merge <one_branch>
 	
 delete the branch:
 
@@ -97,3 +96,16 @@ B - git push origin master, git push origin feature/blah, git revert <commit-num
 C - git commit -m "commit msg", git reset --soft HEAD~2
 D - git add ., git add <file name>, git reset HEAD <filename>, git reset HEAD .(unstage files)
 E - git branch, git checkout master, git checkout feature/blah, git status, git checkout -b feature/newbranch etc.....
+
+
+*****************************************************************************************************************************
+
+stashing and poping the temporary changes
+
+	1. git stash push -m "" -u  (stash is something you are keeping the changes as some backup and 
+									quickly you can do you current important task and later completion of that 
+									task you can pop those changes back to the current branch
+								)
+	2. git stash show -p stash@{0} (to see the changes this particular stash has)
+	3. git stash pop (to apply the last pushed stash to current branch) (LIFO)
+	4. git stash apply stash@{0} (to apply the specific stash to current branch)
