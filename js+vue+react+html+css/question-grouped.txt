@@ -191,10 +191,34 @@ box model - sequence
 			***** 
 		}
 
+	Solution - 
+	
+	function createZ(n) {
+		for (let i = 0; i < n; i++) {
+			if (i == 0 || i == n - 1) {
+			console.log("*".repeat(n))
+			} else {
+			let k = ''
+			for (let x = 0; x < n; x++) {
+				if (n - (x + i) == 1) {
+				k += "*"
+				} else {
+					k += "-"
+				}
+			}
+			console.log(k)
+			}
+		}
+	}
+
 2. 
 		Write a program to reverse the string by word Ex:
 		let str = "Hello how are you?";
 		// Output should be "you? are how Hello"
+		
+	Solution -
+
+		str.split(" ").reverse().join(" ")
 
 3.
 		console.log(1);

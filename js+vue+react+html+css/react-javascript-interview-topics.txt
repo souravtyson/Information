@@ -31,6 +31,7 @@ async axios.get().then()
 
 promise.all().then();
 
+AbortController() for aborting the api calls
 
 redux
 promise

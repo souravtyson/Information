@@ -1448,9 +1448,64 @@ Q. LinkedHashMap
 Q. @Component, @Service, @Controller
 Q. @Configuration and @Bean
 Q. Cloudwatch, EC2 instances, 
+Q. which java version you have used
+Q. what is the different feature in java 8 vs java 11
+Q. what are different functional interface in java
+Q. different stream method you have used
+Q. what advantage stream gives you
+Q. what is intermediate and terminal operation 
+Q. what kind of operation forEach
+Q. in filter which kind of functional interface is used
+Q. what are oops basic principles
+Q. List<Employee> i = new ArrayList();
+	id,name
+	i.stream().map(emp -> emp.getNames()).collect(Collectors.groupBy(x -> x, Collectors.count()))
 
+Q. how does concept of hashmap works if you want to have Employee object as key. 
+	id, name field in employee object
+	1. With hasCode override, with equals override
+	2. with only hasCode override
+	3. hashing only one field
+	4. with same value in hash
+	5. what if equals method always return true.
+	6. new Employee(1, Sourav)
+		new Emnployee(2 Sourav),
+Q. How do you configure service registry
+Q. How do you configure api gateway
+Q. Saga design pattern
+Q. What is builder design pattern?
+Q. @RestController vs @Controller
+Q. How response will be handled in this.
+Q. comparable vs comparator
+Q. Have you used design pattern - Observer design pattern
+Q. you have a monolithic application. Now you are told to migrate it to microservice architecture. What needs to be taken care and how you should do it.
+Q. API Gateway
+Q. Api Gateway vs loadbalancer
+Q. How to handle authentication and authorization
+Q. what will you do if you have application that is going to experience high traffic in coming sunday. What precaution you can take to make it work properly
+Q. How will  you handle database load in this case
+Q. find the employee with there respective manager, employee name, id.
+	select e1.id as empId, e1.employee_name as employeeName, e2.employee_name as managerName, e1 
+	from employee e1 left join employee e2 on e1.manager_id = e2.employee_id.
+Q. find out maximum salary of the employee
+	select Max(salary) from employee where salary < (select Max(salary) from employee)
+Q. find out fifth maximum salary
 
+	select salary from employee order by salary desc limit 1 offset 4;
+	if in your table you have only 4 rows how will you handle it.
 
+Q. What are the ways of creating a thread in java and what are the lifecycle of it, thread safety how can i create Implement with example code(wipro)
+Q. What is memory management in java(wipro)
+Q. What is functional interface (wipro)(give code example)
+Q. Do you have idea about the how class loading works(wipro)
+Q. access modifiers and access specifier(wipro)
+Q. OOPS principle(wipro)
+Q. SOLID principle(wipro)
+Q. how do you provide frontend to backend (deployment perspective like building static files and put it in web or springboot app)(wipro)
+Q. how jsx works (wipro)
+Q. how does class baased & function based component pass data to each other(wipro)
+Q. how is functional and class based component different
+Q. what is single page application(wipro)  
 
 
 
